@@ -6,19 +6,10 @@ body {
   direction: rtl;
 }
 
-.container {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.draggable {
-  padding: 20px;
-  background: white;
-  border: 2px dashed #333;
-  cursor: move;
-  user-select: none;
-  position: absolute;
+canvas {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  border: 1px dashed #999;
+  background: #fff;
 }
