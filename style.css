@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+  background-color: #f7f7f7;
+  text-align: center;
+  padding: 20px;
+  direction: rtl;
+}
+.container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+textarea, input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+}
+.output {
+  margin-top: 20px;
+}
