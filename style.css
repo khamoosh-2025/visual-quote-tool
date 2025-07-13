@@ -5,14 +5,45 @@ body {
   font-family: 'Shabnam', sans-serif;
   direction: rtl;
   background: linear-gradient(to bottom, #1e3c72, #2a5298);
-  color: #fff;
-  text-align: center;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Night_sky_with_stars.jpg/1920px-Night_sky_with_stars.jpg');
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f1/Night_sky_with_stars.jpg');
   background-size: cover;
-  background-position: center;
   background-attachment: fixed;
   backdrop-filter: blur(3px);
+  color: #fff;
+  text-align: center;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo {
+  height: 40px;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+.navbar li a {
+  color: white;
+  text-decoration: none;
+}
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
 .container {
   padding: 15vh 5vw;
   background-color: rgba(0, 0, 0, 0.5);
@@ -24,6 +55,7 @@ body {
 .title {
   font-size: 3em;
   margin-bottom: 0.4em;
+  animation: fade-in 2s ease;
 }
 .subtitle {
   font-size: 1.3em;
@@ -42,4 +74,29 @@ body {
 }
 .buttons .btn:hover {
   background: #ffffff55;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 200px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .navbar ul.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
 }
