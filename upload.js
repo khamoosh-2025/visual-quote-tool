@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const imageInput = document.getElementById("imageInput");
   const descInput = document.getElementById("descInput");
   const gallery = document.getElementById("gallery");
+  const clearBtn = document.getElementById("clearGalleryBtn");
 
   let savedItems = JSON.parse(localStorage.getItem("galleryItems") || "[]");
   savedItems.forEach((item, index) => addImageToGallery(item.src, item.desc, index));
@@ -22,6 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
       descInput.value = "";
     };
     reader.readAsDataURL(file);
+  });
+
+  clearBtn.addEventListener("click", () => {
+    if (confirm("آیا مطمئن هستید که می‌خواهید کل گالری را حذف کنید؟")) {
+      localStorage.removeItem("galleryItems");
+      gallery.innerHTML = "";
+      savedItems = [];
+    }
   });
 
   function addImageToGallery(src, desc, index) {
