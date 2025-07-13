@@ -1,26 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ابزار نگارش تصویری</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>ابزار نگارش تصویری</h1>
-    <textarea id="textInput" placeholder="متن خود را وارد کنید..."></textarea>
+  <h1>ابزار نگارش تصویری</h1>
+  <textarea id="textInput" placeholder="متن خود را وارد کنید..."></textarea>
+  <div class="controls">
     <select id="fontSelect">
       <option value="Shabnam">شبنم</option>
-      <option value="IranNastaliq">نستعلیق</option>
-      <option value="Shekasteh">شکسته</option>
-      <option value="Kasheedeh">کشیده</option>
+      <option value="Nastaligh">نستعلیق</option>
+      <option value="Shekaste">شکسته</option>
+      <option value="Keshide">کشیده</option>
     </select>
+    <input type="color" id="bgColorPicker" value="#ffffff">
+    <input type="file" id="bgImageLoader" accept="image/*">
     <button onclick="generateImage()">تبدیل به تصویر</button>
-    <canvas id="canvas"></canvas>
-    <a id="downloadLink" download="text-image.png">⬇️ دانلود تصویر</a>
   </div>
+  <canvas id="canvas"></canvas>
+  <a id="downloadBtn" download="text-image.png">دانلود تصویر ⬇️</a>
   <script src="script.js"></script>
 </body>
 </html>
