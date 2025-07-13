@@ -1,26 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>ابزار نگارش تصویری</title>
+  <title>گم‌نام خاموش فراری</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>ابزار نگارش تصویری</h1>
-  <textarea id="textInput" placeholder="متن خود را وارد کنید..."></textarea>
-  <div class="controls">
-    <select id="fontSelect">
-      <option value="Shabnam">شبنم</option>
-      <option value="Nastaligh">نستعلیق</option>
-      <option value="Shekaste">شکسته</option>
-      <option value="Keshide">کشیده</option>
-    </select>
-    <input type="color" id="bgColorPicker" value="#ffffff">
-    <input type="file" id="bgImageLoader" accept="image/*">
-    <button onclick="generateImage()">تبدیل به تصویر</button>
-  </div>
-  <canvas id="canvas"></canvas>
-  <a id="downloadBtn" download="text-image.png">دانلود تصویر ⬇️</a>
-  <script src="script.js"></script>
+  <main class="container">
+    <h1 class="title">گم‌نام خاموش فراری</h1>
+    <p class="subtitle">آواز واژه‌ها از خاموشی برمی‌خیزد…</p>
+    <div class="buttons">
+      <a href="gooshe-del.html" class="btn">ورود به گوشه دل</a>
+      <a href="text-art.html" class="btn">ابزار نستعلیق</a>
+      <a href="editor.html" class="btn">ویرایش تصویر</a>
+    </div>
+  </main>
+  <script src="mode-toggle.js"></script>
 </body>
 </html>
