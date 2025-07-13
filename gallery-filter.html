@@ -3,37 +3,44 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>گالری دل‌نوشته‌ها + فیلتر تصویر</title>
+  <title>گالری فیلترشده</title>
   <link rel="stylesheet" href="style.css">
-  <script src="upload.js" defer></script>
+  <script src="filter.js" defer></script>
 </head>
 <body>
   <header class="topbar">
-    <h1>گالری دل‌نوشته‌ها</h1>
+    <h1>📂 گالری با فیلتر دسته‌بندی</h1>
   </header>
 
   <main>
     <section class="upload-section">
-      <label for="imageInput">📷 تصویر خود را انتخاب کنید:</label>
+      <label for="imageInput">📷 انتخاب تصویر:</label>
       <input type="file" id="imageInput" accept="image/*"><br><br>
 
-      <label for="descInput">📝 توضیح تصویر:</label>
-      <input type="text" id="descInput" placeholder="مثلاً: قطره‌ای از دل..."><br><br>
+      <label for="descInput">📝 توضیح:</label>
+      <input type="text" id="descInput"><br><br>
 
-      <label for="filterSelect">🎭 فیلتر تصویر:</label>
+      <label for="categoryInput">🏷️ دسته:</label>
+      <input type="text" id="categoryInput"><br><br>
+
+      <label for="filterSelect">🎭 فیلتر:</label>
       <select id="filterSelect">
         <option value="none">بدون فیلتر</option>
         <option value="grayscale(100%)">سیاه‌وسفید</option>
         <option value="blur(2px)">محو</option>
         <option value="contrast(150%)">کنتراست</option>
-        <option value="sepia(80%)">قهوه‌ای کلاسیک</option>
+        <option value="sepia(80%)">قهوه‌ای</option>
       </select><br><br>
 
-      <button id="clearGalleryBtn" class="clear-all-btn">🧹 حذف کامل گالری</button>
+      <button id="clearGalleryBtn" class="clear-all-btn">🧹 حذف گالری</button>
+    </section>
+
+    <section id="filterMenu" class="filter-menu">
+      <button data-category="all" class="filter-btn active">نمایش همه</button>
     </section>
 
     <section id="gallery" class="gallery">
-      <!-- گالری تصاویر -->
+      <!-- تصاویر گالری اینجا قرار می‌گیرند -->
     </section>
   </main>
 </body>
