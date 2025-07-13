@@ -2,33 +2,44 @@
 body {
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #222;
   font-family: 'Shabnam', sans-serif;
-  text-align: center;
   direction: rtl;
+  background: linear-gradient(to bottom, #1e3c72, #2a5298);
+  color: #fff;
+  text-align: center;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Night_sky_with_stars.jpg/1920px-Night_sky_with_stars.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  backdrop-filter: blur(3px);
 }
 .container {
-  padding: 10vh 5vw;
+  padding: 15vh 5vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  margin: auto;
+  width: 90%;
+  max-width: 800px;
 }
 .title {
   font-size: 3em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
 }
 .subtitle {
-  font-size: 1.2em;
-  color: #666;
+  font-size: 1.3em;
+  color: #ccc;
   margin-bottom: 2em;
 }
 .buttons .btn {
-  margin: 0 10px;
-  padding: 10px 20px;
-  background: #333;
+  margin: 10px;
+  padding: 12px 24px;
+  background: #ffffff33;
   color: #fff;
+  border: 1px solid #fff;
+  border-radius: 10px;
   text-decoration: none;
-  border-radius: 8px;
+  font-size: 1em;
 }
 .buttons .btn:hover {
-  background: #555;
+  background: #ffffff55;
 }
