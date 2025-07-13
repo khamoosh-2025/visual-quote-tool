@@ -4,99 +4,68 @@ body {
   padding: 0;
   font-family: 'Shabnam', sans-serif;
   direction: rtl;
-  background: linear-gradient(to bottom, #1e3c72, #2a5298);
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f1/Night_sky_with_stars.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  backdrop-filter: blur(3px);
+  background: linear-gradient(to bottom, #283e51, #485563);
   color: #fff;
+}
+
+.topbar {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
   text-align: center;
 }
 
-.navbar {
+.cards-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0,0,0,0.6);
-  padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-.logo {
-  height: 40px;
-}
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-}
-.navbar li a {
-  color: white;
-  text-decoration: none;
-}
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px 20px;
 }
 
-.container {
-  padding: 15vh 5vw;
-  background-color: rgba(0, 0, 0, 0.5);
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ccc;
   border-radius: 16px;
-  margin: auto;
-  width: 90%;
-  max-width: 800px;
+  padding: 20px;
+  width: 300px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  text-align: center;
 }
-.title {
-  font-size: 3em;
-  margin-bottom: 0.4em;
-  animation: fade-in 2s ease;
+
+.card:hover {
+  transform: translateY(-8px);
 }
-.subtitle {
-  font-size: 1.3em;
-  color: #ccc;
-  margin-bottom: 2em;
+
+.card h2 {
+  font-size: 1.5em;
+  color: #fff;
 }
-.buttons .btn {
-  margin: 10px;
-  padding: 12px 24px;
-  background: #ffffff33;
+
+.card p {
+  font-size: 1em;
+  color: #ddd;
+  margin: 15px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ffffff22;
   color: #fff;
   border: 1px solid #fff;
-  border-radius: 10px;
   text-decoration: none;
-  font-size: 1em;
-}
-.buttons .btn:hover {
-  background: #ffffff55;
+  border-radius: 8px;
 }
 
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.btn:hover {
+  background: #ffffff44;
 }
 
 @media (max-width: 768px) {
-  .navbar ul {
-    display: none;
+  .cards-container {
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    width: 200px;
-    border-radius: 10px;
-    padding: 10px;
-  }
-  .navbar ul.active {
-    display: flex;
-  }
-  .menu-toggle {
-    display: block;
+    align-items: center;
   }
 }
