@@ -21,12 +21,15 @@ body {
 
 .upload-label {
   font-size: 1rem;
-  margin-bottom: 10px;
   display: block;
+  margin-bottom: 10px;
 }
 
-input[type="file"] {
+input[type="file"], input[type="text"] {
   padding: 0.5rem;
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 10px;
 }
 
 .gallery {
@@ -36,8 +39,21 @@ input[type="file"] {
   padding: 20px;
 }
 
-.gallery img {
-  width: 100%;
+.image-box {
+  background: #fff;
+  padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 10px #ccc;
+  text-align: center;
+}
+
+.image-box img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.image-box p {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #333;
 }

@@ -1,31 +1,43 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const input = document.getElementById("imageInput");
+  const imageInput = document.getElementById("imageInput");
+  const descInput = document.getElementById("descInput");
   const gallery = document.getElementById("gallery");
 
-  // نمایش تصاویر ذخیره‌شده
-  const savedImages = JSON.parse(localStorage.getItem("uploadedImages") || "[]");
-  savedImages.forEach(src => addImageToGallery(src));
+  let savedItems = JSON.parse(localStorage.getItem("galleryItems") || "[]");
+  savedItems.forEach(item => addImageToGallery(item.src, item.desc));
 
-  input.addEventListener("change", () => {
-    const file = input.files[0];
+  imageInput.addEventListener("change", () => {
+    const file = imageInput.files[0];
+    const desc = descInput.value.trim();
+
     if (!file) return;
 
     const reader = new FileReader();
     reader.onload = function(e) {
       const src = e.target.result;
-      addImageToGallery(src);
+      addImageToGallery(src, desc);
 
-      // ذخیره در localStorage
-      savedImages.push(src);
-      localStorage.setItem("uploadedImages", JSON.stringify(savedImages));
+      savedItems.push({ src, desc });
+      localStorage.setItem("galleryItems", JSON.stringify(savedItems));
+
+      descInput.value = "";
     };
     reader.readAsDataURL(file);
   });
 
-  function addImageToGallery(src) {
+  function addImageToGallery(src, desc) {
+    const box = document.createElement("div");
+    box.className = "image-box";
+
     const img = document.createElement("img");
     img.src = src;
-    gallery.appendChild(img);
+
+    const p = document.createElement("p");
+    p.textContent = desc || "بدون توضیح";
+
+    box.appendChild(img);
+    box.appendChild(p);
+    gallery.appendChild(box);
   }
 });
