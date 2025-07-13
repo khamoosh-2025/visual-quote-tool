@@ -3,8 +3,9 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>گالری تصاویر</title>
+  <title>گالری با بزرگ‌نمایی تصویر</title>
   <link rel="stylesheet" href="style.css">
+  <script src="lightbox.js" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -17,5 +18,10 @@
     <div class="gallery-item"><img src="images/sample3.jpg" alt="نمونه ۳"></div>
     <div class="gallery-item"><img src="images/sample4.jpg" alt="نمونه ۴"></div>
   </main>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">×</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
 </body>
 </html>
