@@ -4,9 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const descInput = document.getElementById("descInput");
   const gallery = document.getElementById("gallery");
   const clearBtn = document.getElementById("clearGalleryBtn");
+  const bgInput = document.getElementById("bgInput");
 
   let savedItems = JSON.parse(localStorage.getItem("galleryItems") || "[]");
   savedItems.forEach((item, index) => addImageToGallery(item.src, item.desc, index));
+
+  // بارگذاری تصویر پس‌زمینه اگر قبلاً ذخیره شده باشد
+  const savedBg = localStorage.getItem("galleryBg");
+  if (savedBg) document.body.style.backgroundImage = `url(${savedBg})`;
 
   imageInput.addEventListener("change", () => {
     const file = imageInput.files[0];
@@ -21,6 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("galleryItems", JSON.stringify(savedItems));
       addImageToGallery(src, desc, savedItems.length - 1);
       descInput.value = "";
+    };
+    reader.readAsDataURL(file);
+  });
+
+  bgInput.addEventListener("change", () => {
+    const file = bgInput.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const bgSrc = e.target.result;
+      document.body.style.backgroundImage = `url(${bgSrc})`;
+      localStorage.setItem("galleryBg", bgSrc);
     };
     reader.readAsDataURL(file);
   });

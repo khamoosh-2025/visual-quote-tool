@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>گالری دل‌نوشته‌ها + پس‌زمینه</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="upload.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>گالری دل‌نوشته‌ها</h1>
+  </header>
+
+  <main>
+    <section class="upload-section">
+      <label for="imageInput">📷 تصویر خود را انتخاب کنید:</label>
+      <input type="file" id="imageInput" accept="image/*"><br><br>
+
+      <label for="descInput">📝 توضیح تصویر:</label>
+      <input type="text" id="descInput" placeholder="مثلاً: قطره‌ای از دل..."><br><br>
+
+      <label for="bgInput">🖼️ تصویر پس‌زمینه:</label>
+      <input type="file" id="bgInput" accept="image/*"><br><br>
+
+      <button id="clearGalleryBtn" class="clear-all-btn">🧹 حذف کامل گالری</button>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <!-- گالری تصاویر -->
+    </section>
+  </main>
+</body>
+</html>

@@ -1,7 +1,9 @@
 
 body {
   font-family: sans-serif;
-  background: #f9f9f9;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
   direction: rtl;
@@ -17,12 +19,10 @@ body {
 .upload-section {
   text-align: center;
   margin: 20px;
-}
-
-.upload-label {
-  font-size: 1rem;
-  display: block;
-  margin-bottom: 10px;
+  background: rgba(255,255,255,0.8);
+  padding: 15px;
+  border-radius: 12px;
+  display: inline-block;
 }
 
 input[type="file"], input[type="text"] {
@@ -50,7 +50,7 @@ input[type="file"], input[type="text"] {
 }
 
 .image-box {
-  background: #fff;
+  background: rgba(255,255,255,0.85);
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 10px #ccc;
