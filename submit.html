@@ -5,21 +5,27 @@
   <meta charset="UTF-8">
   <title>ارسال دل‌نوشته</title>
   <link rel="stylesheet" href="style.css">
+  <script src="submit.js" defer></script>
 </head>
 <body>
   <header class="topbar">
     <h1>فرم ارسال دل‌نوشته</h1>
   </header>
   <main class="submit-form">
-    <form>
+    <form id="postForm">
       <label for="title">عنوان دل‌نوشته:</label>
-      <input type="text" id="title" name="title" placeholder="مثلاً سکوت شب">
+      <input type="text" id="title" name="title" placeholder="مثلاً سکوت شب" required>
 
       <label for="content">متن:</label>
-      <textarea id="content" name="content" rows="6" placeholder="دل‌نوشته خود را وارد کنید..."></textarea>
+      <textarea id="content" name="content" rows="6" placeholder="دل‌نوشته خود را وارد کنید..." required></textarea>
 
       <button type="submit" class="btn">ارسال</button>
     </form>
+
+    <section id="postList">
+      <h2>دل‌نوشته‌های ارسال‌شده:</h2>
+      <div id="posts"></div>
+    </section>
   </main>
 </body>
 </html>
