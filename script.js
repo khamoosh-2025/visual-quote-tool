@@ -1,51 +1,80 @@
-
+const imageLoader = document.getElementById('imageLoader');
 const canvas = document.getElementById('imageCanvas');
 const ctx = canvas.getContext('2d');
-const imageLoader = document.getElementById('imageLoader');
-let img = new Image();
 
 imageLoader.addEventListener('change', handleImage, false);
 
-function handleImage(e){
+function handleImage(e) {
   const reader = new FileReader();
-  reader.onload = function(event){
-    img.onload = function(){
+  reader.onload = function(event) {
+    const img = new Image();
+    img.onload = function() {
       canvas.width = img.width;
       canvas.height = img.height;
-      ctx.drawImage(img,0,0);
-    }
+      ctx.drawImage(img, 0, 0);
+      drawWatermark();
+    };
     img.src = event.target.result;
-  }
-  reader.readAsDataURL(e.target.files[0]);     
+  };
+  reader.readAsDataURL(e.target.files[0]);
 }
 
-function downloadImage() {
+function drawWatermark() {
   const text = document.getElementById('textInput').value;
   const position = document.getElementById('position').value;
+  const font = document.getElementById('fontSelect').value;
   const color = document.getElementById('colorPicker').value;
   const opacity = parseFloat(document.getElementById('opacitySlider').value);
 
-  ctx.drawImage(img, 0, 0);
-  ctx.globalAlpha = opacity;
-  ctx.fillStyle = color;
-  const selectedFont = document.getElementById("fontSelect").value;
-  ctx.font = "36px " + selectedFont;
-  ctx.textAlign = "right";
+  if (!text) return;
 
-  let x = 0, y = 0;
-  switch(position) {
-    case 'top-left': x = 20; y = 40; break;
-    case 'top-right': x = canvas.width - 20; y = 40; ctx.textAlign = "right"; break;
-    case 'center': x = canvas.width / 2; y = canvas.height / 2; ctx.textAlign = "center"; break;
-    case 'bottom-left': x = 20; y = canvas.height - 20; break;
-    case 'bottom-right': x = canvas.width - 20; y = canvas.height - 20; ctx.textAlign = "right"; break;
+  ctx.globalAlpha = opacity;
+  ctx.font = `36px ${font}`;
+  ctx.fillStyle = color;
+  ctx.textAlign = 'center';
+
+  let x = canvas.width / 2;
+  let y = canvas.height / 2;
+
+  switch (position) {
+    case 'top-left':
+      x = 50;
+      y = 50;
+      ctx.textAlign = 'start';
+      break;
+    case 'top-right':
+      x = canvas.width - 50;
+      y = 50;
+      ctx.textAlign = 'end';
+      break;
+    case 'bottom-left':
+      x = 50;
+      y = canvas.height - 50;
+      ctx.textAlign = 'start';
+      break;
+    case 'bottom-right':
+      x = canvas.width - 50;
+      y = canvas.height - 50;
+      ctx.textAlign = 'end';
+      break;
+    case 'center':
+      ctx.textAlign = 'center';
+      break;
   }
 
   ctx.fillText(text, x, y);
-  ctx.globalAlpha = 1.0;
+  ctx.globalAlpha = 1;
+}
 
+document.getElementById('textInput').addEventListener('input', drawWatermark);
+document.getElementById('position').addEventListener('change', drawWatermark);
+document.getElementById('fontSelect').addEventListener('change', drawWatermark);
+document.getElementById('colorPicker').addEventListener('change', drawWatermark);
+document.getElementById('opacitySlider').addEventListener('input', drawWatermark);
+
+function downloadImage() {
   const link = document.createElement('a');
-  link.download = 'watermarked.png';
+  link.download = 'watermarked-image.png';
   link.href = canvas.toDataURL();
   link.click();
 }
