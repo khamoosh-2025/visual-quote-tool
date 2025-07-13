@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>گالری دل‌نوشته‌ها + تاریخ و دسته</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="upload.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>گالری دل‌نوشته‌ها</h1>
+  </header>
+
+  <main>
+    <section class="upload-section">
+      <label for="imageInput">📷 تصویر را انتخاب کنید:</label>
+      <input type="file" id="imageInput" accept="image/*"><br><br>
+
+      <label for="descInput">📝 توضیح تصویر:</label>
+      <input type="text" id="descInput" placeholder="مثلاً: شب خاموش"><br><br>
+
+      <label for="categoryInput">🏷️ دسته یا موضوع:</label>
+      <input type="text" id="categoryInput" placeholder="مثلاً: دل‌نوشته، طبیعت، خاطره"><br><br>
+
+      <label for="filterSelect">🎭 فیلتر:</label>
+      <select id="filterSelect">
+        <option value="none">بدون فیلتر</option>
+        <option value="grayscale(100%)">سیاه‌وسفید</option>
+        <option value="blur(2px)">محو</option>
+        <option value="contrast(150%)">کنتراست</option>
+        <option value="sepia(80%)">قهوه‌ای کلاسیک</option>
+      </select><br><br>
+
+      <button id="clearGalleryBtn" class="clear-all-btn">🧹 حذف کامل گالری</button>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <!-- گالری تصاویر -->
+    </section>
+  </main>
+</body>
+</html>
