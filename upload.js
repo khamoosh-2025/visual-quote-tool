@@ -4,40 +4,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const descInput = document.getElementById("descInput");
   const gallery = document.getElementById("gallery");
   const clearBtn = document.getElementById("clearGalleryBtn");
-  const bgInput = document.getElementById("bgInput");
+  const filterSelect = document.getElementById("filterSelect");
 
   let savedItems = JSON.parse(localStorage.getItem("galleryItems") || "[]");
-  savedItems.forEach((item, index) => addImageToGallery(item.src, item.desc, index));
-
-  // بارگذاری تصویر پس‌زمینه اگر قبلاً ذخیره شده باشد
-  const savedBg = localStorage.getItem("galleryBg");
-  if (savedBg) document.body.style.backgroundImage = `url(${savedBg})`;
+  savedItems.forEach((item, index) => addImageToGallery(item.src, item.desc, item.filter || "none", index));
 
   imageInput.addEventListener("change", () => {
     const file = imageInput.files[0];
     const desc = descInput.value.trim();
+    const filter = filterSelect.value;
 
     if (!file) return;
 
     const reader = new FileReader();
     reader.onload = function(e) {
       const src = e.target.result;
-      savedItems.push({ src, desc });
+      savedItems.push({ src, desc, filter });
       localStorage.setItem("galleryItems", JSON.stringify(savedItems));
-      addImageToGallery(src, desc, savedItems.length - 1);
+      addImageToGallery(src, desc, filter, savedItems.length - 1);
       descInput.value = "";
-    };
-    reader.readAsDataURL(file);
-  });
-
-  bgInput.addEventListener("change", () => {
-    const file = bgInput.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const bgSrc = e.target.result;
-      document.body.style.backgroundImage = `url(${bgSrc})`;
-      localStorage.setItem("galleryBg", bgSrc);
     };
     reader.readAsDataURL(file);
   });
@@ -50,12 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function addImageToGallery(src, desc, index) {
+  function addImageToGallery(src, desc, filter, index) {
     const box = document.createElement("div");
     box.className = "image-box";
 
     const img = document.createElement("img");
     img.src = src;
+    img.style.filter = filter;
 
     const p = document.createElement("p");
     p.textContent = desc || "بدون توضیح";
@@ -67,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       savedItems.splice(index, 1);
       localStorage.setItem("galleryItems", JSON.stringify(savedItems));
       gallery.innerHTML = "";
-      savedItems.forEach((item, i) => addImageToGallery(item.src, item.desc, i));
+      savedItems.forEach((item, i) => addImageToGallery(item.src, item.desc, item.filter, i));
     };
 
     box.appendChild(img);
