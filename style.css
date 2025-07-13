@@ -45,6 +45,7 @@ input[type="file"], input[type="text"] {
   border-radius: 10px;
   box-shadow: 0 0 10px #ccc;
   text-align: center;
+  position: relative;
 }
 
 .image-box img {
@@ -56,4 +57,16 @@ input[type="file"], input[type="text"] {
   margin-top: 8px;
   font-size: 0.9rem;
   color: #333;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
 }
