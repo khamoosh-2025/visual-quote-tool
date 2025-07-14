@@ -462,3 +462,33 @@ nextBtn.onclick = showNext;
 document.addEventListener("DOMContentLoaded", updateImageList);
 const observer = new MutationObserver(updateImageList);
 observer.observe(document.getElementById("gallery"), { childList: true });
+
+// افزودن دکمه ویرایش به هر تصویر
+function updateImageList() {
+  imageElements = Array.from(document.querySelectorAll(".image-box img"));
+  imageElements.forEach((img, index) => {
+    img.onclick = () => openLightbox(index);
+  });
+
+  document.querySelectorAll(".image-box").forEach((box) => {
+    if (!box.querySelector(".edit-btn")) {
+      const editBtn = document.createElement("button");
+      editBtn.textContent = "✏️ ویرایش";
+      editBtn.className = "edit-btn";
+      editBtn.onclick = () => editMetadata(box);
+      box.appendChild(editBtn);
+    }
+  });
+}
+
+function editMetadata(box) {
+  const desc = prompt("ویرایش توضیح:", box.querySelector("p").textContent);
+  if (desc !== null) {
+    box.querySelector("p").textContent = desc;
+  }
+
+  const newTags = prompt("ویرایش برچسب‌ها (با ویرگول جدا کنید):", box.getAttribute("data-tags"));
+  if (newTags !== null) {
+    box.setAttribute("data-tags", newTags);
+  }
+}

@@ -291,3 +291,14 @@ button:hover {
 
 #prevBtn { left: 0; }
 #nextBtn { right: 0; }
+
+.edit-btn {
+  background-color: #ffa726;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
