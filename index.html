@@ -8,8 +8,6 @@
 <body>
   <h1>ابزار طراحی واترمارک</h1>
 
-  <p class="quote">🖋️ "آب، تصویر آینه را با یک لرزش می‌رباید؛ دل را اما، واژه‌ای آرام، ماندگار می‌کند..."</p>
-
   <input type="file" id="imageLoader" name="imageLoader" />
   <br><br>
 
@@ -35,13 +33,23 @@
     <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
   </select><br><br>
 
-  <label>رنگ: <input type="color" id="colorPicker" value="#ffffff"></label><br><br>
-  <label>شفافیت: <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5"></label><br><br>
+  <label>رنگ:
+    <input type="color" id="colorPicker" value="#ffffff">
+  </label><br><br>
 
+  <label>شفافیت:
+    <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5">
+  </label><br><br>
+
+  <!-- ✅ دکمه جدید پیش‌نمایش واترمارک -->
+  <button onclick="previewWatermark()">نمایش واترمارک</button>
+
+  <!-- ✅ دکمه ذخیره تصویر -->
   <button onclick="downloadImage()">ذخیره تصویر</button>
 
   <canvas id="imageCanvas"></canvas>
 
   <script src="script.js"></script>
+  <!-- نسخه ویرایش‌شده توسط khamoosh -->
 </body>
 </html>
