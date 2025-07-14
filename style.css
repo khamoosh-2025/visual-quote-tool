@@ -1,45 +1,37 @@
-
 body {
-  margin: 0;
-  padding: 0;
   font-family: sans-serif;
-  background: #f0f0f0;
-  direction: rtl;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
 }
 
-canvas {
-  display: block;
-  margin: 20px auto;
-  max-width: 100%;
-  border: 1px dashed #999;
-  background: #fff;
+.container {
+  max-width: 600px;
+  margin: auto;
 }
 
-@font-face {
-  font-family: "Bita";
-  src: url("fonts/Bita.ttf");
+textarea, input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
 }
-@font-face {
-  font-family: "Tabassom";
-  src: url("fonts/Tabassom.ttf");
+
+button {
+  padding: 10px 20px;
+  background: #00aaff;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
 }
-@font-face {
-  font-family: "TahrirBadkhat";
-  src: url("fonts/TahrirBadkhat.ttf");
-}
-@font-face {
-  font-family: "Zahabi";
-  src: url("fonts/Zahabi.ttf");
-}
-@font-face {
-  font-family: "Nastaligh";
-  src: url("fonts/Nastaligh.ttf");
-}
-@font-face {
-  font-family: "Nastaligh-Shekaste";
-  src: url("fonts/Nastaligh-Shekaste.ttf");
-}
-@font-face {
-  font-family: "Nastaligh-Keshide";
-  src: url("fonts/Nastaligh-Keshide.ttf");
+
+#quoteCanvas {
+  margin-top: 20px;
+  border: 1px solid #444;
+  border-radius: 10px;
 }
