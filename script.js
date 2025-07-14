@@ -1,39 +1,28 @@
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-const imageInput = document.getElementById("imageInput");
-const textInput = document.getElementById("textInput");
-const fontSelect = document.getElementById("fontSelect");
-const positionSelect = document.getElementById("position");
-const colorPicker = document.getElementById("colorPicker");
-const opacitySlider = document.getElementById("opacitySlider");
 
-let image = new Image();
-
-imageInput.addEventListener("change", function (e) {
+document.getElementById("imageInput").addEventListener("change", function (e) {
   const file = e.target.files[0];
-  if (!file) return;
   const reader = new FileReader();
   reader.onload = function (event) {
-    image.onload = function () {
-      canvas.width = image.width;
-      canvas.height = image.height;
-      ctx.drawImage(image, 0, 0);
+    const img = new Image();
+    img.onload = function () {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
     };
-    image.src = event.target.result;
+    img.src = event.target.result;
   };
   reader.readAsDataURL(file);
 });
 
 function addWatermark() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(image, 0, 0);
-
-  const text = textInput.value;
-  const font = fontSelect.value;
-  const position = positionSelect.value;
-  const color = colorPicker.value;
-  const opacity = parseFloat(opacitySlider.value);
+  const text = document.getElementById("textInput").value;
+  const position = document.getElementById("position").value;
+  const font = document.getElementById("fontSelect").value;
+  const color = document.getElementById("colorPicker").value;
+  const opacity = document.getElementById("opacitySlider").value;
 
   ctx.globalAlpha = opacity;
   ctx.fillStyle = color;
@@ -45,34 +34,36 @@ function addWatermark() {
 
   switch (position) {
     case "top-left":
-      x = 60;
+      x = 50;
       y = 50;
-      ctx.textAlign = "left";
+      ctx.textAlign = "start";
       break;
     case "top-right":
-      x = canvas.width - 60;
+      x = canvas.width - 50;
       y = 50;
-      ctx.textAlign = "right";
+      ctx.textAlign = "end";
+      break;
+    case "center":
       break;
     case "bottom-left":
-      x = 60;
-      y = canvas.height - 30;
-      ctx.textAlign = "left";
+      x = 50;
+      y = canvas.height - 50;
+      ctx.textAlign = "start";
       break;
     case "bottom-right":
-      x = canvas.width - 60;
-      y = canvas.height - 30;
-      ctx.textAlign = "right";
+      x = canvas.width - 50;
+      y = canvas.height - 50;
+      ctx.textAlign = "end";
       break;
   }
 
   ctx.fillText(text, x, y);
-  ctx.globalAlpha = 1;
+  ctx.globalAlpha = 1.0;
 }
 
 function downloadImage() {
   const link = document.createElement("a");
   link.download = "watermarked-image.png";
-  link.href = canvas.toDataURL();
+  link.href = canvas.toDataURL("image/png");
   link.click();
 }

@@ -2,70 +2,43 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>ابزار نگارش تصویری</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <h1>✍️ ابزار نگارش تصویری با فونت فارسی</h1>
-  </header>
+  <h1>ابزار نگارش تصویری با فونت فارسی</h1>
 
-  <main class="container">
-    <div class="controls">
-      <label class="file-input">
-        <i class="ph-image"></i>
-        <input type="file" id="imageInput" />
-      </label>
+  <input type="file" id="imageInput">
+  <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea>
 
-      <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea>
+  <label for="position">موقعیت:</label>
+  <select id="position">
+    <option value="top-left">بالا چپ</option>
+    <option value="top-right">بالا راست</option>
+    <option value="center">مرکز</option>
+    <option value="bottom-left">پایین چپ</option>
+    <option value="bottom-right">پایین راست</option>
+  </select>
 
-      <div class="row">
-        <label>📍 موقعیت:
-          <select id="position">
-            <option value="top-left">بالا چپ</option>
-            <option value="top-right">بالا راست</option>
-            <option value="center">مرکز</option>
-            <option value="bottom-left">پایین چپ</option>
-            <option value="bottom-right">پایین راست</option>
-          </select>
-        </label>
+  <label for="fontSelect">فونت:</label>
+  <select id="fontSelect">
+    <option value="Bita">بیتا</option>
+    <option value="Tabassom">تبسم</option>
+    <option value="TahrirBadkhat">تحریر بدخط</option>
+    <option value="Zahabi">ذهبی</option>
+    <option value="Nastaligh">نستعلیق</option>
+    <option value="Nastaligh-Shekaste">نستعلیق شکسته</option>
+    <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
+  </select>
 
-        <label>🖋 فونت:
-          <select id="fontSelect">
-            <option value="Bita">بیتا</option>
-            <option value="Tabassom">تبسم</option>
-            <option value="TahrirBadkhat">تحریر بدخط</option>
-            <option value="Zahabi">ذهبی</option>
-            <option value="Nastaligh">نستعلیق</option>
-            <option value="Nastaligh-Shekaste">نستعلیق شکسته</option>
-            <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
-          </select>
-        </label>
-      </div>
+  <input type="color" id="colorPicker" value="#ffffff">
+  <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5">
 
-      <div class="row">
-        <label>🎨 رنگ:
-          <input type="color" id="colorPicker" value="#ffffff" />
-        </label>
+  <button onclick="addWatermark()">افزودن واترمارک</button>
+  <button onclick="downloadImage()">دانلود تصویر</button>
 
-        <label>🌫 شفافیت:
-          <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5" />
-        </label>
-      </div>
-
-      <div class="buttons">
-        <button onclick="addWatermark()">➕ افزودن واترمارک</button>
-        <button onclick="downloadImage()">⬇️ دانلود تصویر</button>
-      </div>
-    </div>
-
-    <canvas id="canvas"></canvas>
-  </main>
-
-  <footer class="footer">نسخه پیشرفته ابزار توسط khamoosh</footer>
+  <canvas id="canvas"></canvas>
 
   <script src="script.js"></script>
 </body>
