@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
   background: #f0f0f0;
   direction: rtl;
+  text-align: center;
 }
 
 canvas {
@@ -12,21 +13,4 @@ canvas {
   max-width: 100%;
   border: 1px dashed #999;
   background: #fff;
-}
-
-.drop-zone {
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 40px;
-  border: 2px dashed #888;
-  background-color: #fafafa;
-  text-align: center;
-  color: #333;
-  transition: background-color 0.3s ease;
-}
-
-.drop-zone.dragover {
-  background-color: #e0e0e0;
-  border-color: #555;
 }
