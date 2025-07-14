@@ -1,7 +1,6 @@
-
-document.addEventListener("DOMContentLoaded", function () {
-  const toggle = document.getElementById("modeToggle");
-  toggle.addEventListener("change", function () {
-    document.body.classList.toggle("dark", toggle.checked);
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("toggleMode");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
   });
 });

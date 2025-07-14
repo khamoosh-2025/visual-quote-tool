@@ -1,26 +1,30 @@
-
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>ابزار نگارش تصویری</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>گم‌نام خاموش فراری</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="mode-toggle.js" defer></script>
 </head>
-<body dir="rtl">
-  <h1>ابزار نگارش تصویری</h1>
-  <textarea id="text-input" placeholder="متن خود را وارد کنید..."></textarea>
-  <div class="controls">
-    <button onclick="generateImage()">تبدیل به تصویر</button>
-    <select id="font-select">
-      <option value="shabnam">شبنم</option>
-      <option value="nastaliq">نستعلیق</option>
-      <option value="shekasteh">شکسته</option>
-      <option value="kashideh">کشیده</option>
-    </select>
-  </div>
-  <div id="image-output"></div>
-  <a id="download-link" download="text-image.png">دانلود تصویر ⬇️</a>
-  <script src="script.js"></script>
+<body>
+  <header class="header">
+    <h1>گم‌نام خاموش فراری</h1>
+    <p class="subtitle">آواز واژه‌ها از خاموشی برمی‌خیزد…</p>
+    <div class="mode-toggle">
+      <button id="toggleMode">🌓 تغییر حالت</button>
+    </div>
+  </header>
+
+  <main class="main-buttons">
+    <a href="gooshe-del.html" class="button">📖 گوشه‌ی دل</a>
+    <a href="tools.html" class="button">✍️ ارسال دل‌نوشته</a>
+    <a href="about.html" class="button">👤 درباره من</a>
+    <a href="contact.html" class="button">📬 تماس با من</a>
+  </main>
+
+  <footer class="footer">
+    <p>© ۲۰۲۵ گم‌نام خاموش فراری</p>
+  </footer>
 </body>
 </html>
-    
