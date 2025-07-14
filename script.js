@@ -2,23 +2,37 @@ let canvas = document.getElementById("imageCanvas");
 let ctx = canvas.getContext("2d");
 let uploadedImage = null;
 
-function updateCanvas() {
+document.getElementById("imageLoader").addEventListener("change", function (e) {
+  let file = e.target.files[0];
+  let reader = new FileReader();
+
+  reader.onload = function (event) {
+    let img = new Image();
+    img.onload = function () {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      uploadedImage = img;
+    };
+    img.src = event.target.result;
+  };
+
+  reader.readAsDataURL(file);
+});
+
+function downloadImage() {
   if (!uploadedImage) return;
 
   let text = document.getElementById("textInput").value;
-  let position = document.getElementById("position").value;
   let font = document.getElementById("fontSelect").value;
+  let position = document.getElementById("position").value;
   let color = document.getElementById("colorPicker").value;
-  let opacity = parseFloat(document.getElementById("opacitySlider").value);
+  let opacity = document.getElementById("opacitySlider").value;
 
-  canvas.width = uploadedImage.width;
-  canvas.height = uploadedImage.height;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(uploadedImage, 0, 0);
-
-  ctx.globalAlpha = opacity;
   ctx.font = `40px ${font}`;
   ctx.fillStyle = color;
+  ctx.globalAlpha = opacity;
   ctx.textAlign = "center";
 
   let x = canvas.width / 2;
@@ -26,11 +40,11 @@ function updateCanvas() {
 
   switch (position) {
     case "top-left":
-      x = 100;
+      x = 60;
       y = 60;
       break;
     case "top-right":
-      x = canvas.width - 100;
+      x = canvas.width - 60;
       y = 60;
       break;
     case "center":
@@ -38,40 +52,15 @@ function updateCanvas() {
       y = canvas.height / 2;
       break;
     case "bottom-left":
-      x = 100;
+      x = 60;
       y = canvas.height - 60;
       break;
     case "bottom-right":
-      x = canvas.width - 100;
+      x = canvas.width - 60;
       y = canvas.height - 60;
       break;
   }
 
   ctx.fillText(text, x, y);
   ctx.globalAlpha = 1.0;
-}
-
-document.getElementById("imageLoader").addEventListener("change", function (e) {
-  let file = e.target.files[0];
-  let reader = new FileReader();
-  reader.onload = function (event) {
-    let img = new Image();
-    img.onload = function () {
-      uploadedImage = img;
-      updateCanvas();
-    };
-    img.src = event.target.result;
-  };
-  reader.readAsDataURL(file);
-});
-
-["textInput", "position", "fontSelect", "colorPicker", "opacitySlider"].forEach(id => {
-  document.getElementById(id).addEventListener("input", updateCanvas);
-});
-
-function downloadImage() {
-  let link = document.createElement("a");
-  link.download = "watermarked-image.png";
-  link.href = canvas.toDataURL();
-  link.click();
 }
