@@ -1,74 +1,98 @@
+let canvas = document.getElementById("imageCanvas");
+let ctx = canvas.getContext("2d");
+let uploadedImage = null;
 
-const canvas = document.getElementById("imageCanvas");
-const ctx = canvas.getContext("2d");
+function addWatermark() {
+  if (!uploadedImage) return;
 
-function drawWatermark() {
-  const text = document.getElementById("textInput").value;
-  const font = document.getElementById("fontSelect").value;
-  const color = document.getElementById("colorPicker").value;
-  const opacity = parseFloat(document.getElementById("opacitySlider").value);
-  const position = document.getElementById("position").value;
+  let text = document.getElementById("textInput").value;
+  let font = document.getElementById("fontSelect").value;
+  let color = document.getElementById("colorPicker").value;
+  let opacity = parseFloat(document.getElementById("opacitySlider").value);
+  let position = document.getElementById("position").value;
 
-  ctx.globalAlpha = 1.0;
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  ctx.putImageData(imageData, 0, 0);
+  ctx.drawImage(uploadedImage, 0, 0);
 
-  ctx.globalAlpha = opacity;
-  ctx.fillStyle = color;
-  ctx.font = "40px " + font;
+  ctx.font = `40px ${font}`;
+  ctx.fillStyle = `rgba(${hexToRgb(color)}, ${opacity})`;
   ctx.textAlign = "center";
 
   let x = canvas.width / 2;
   let y = canvas.height - 60;
 
-  if (position === "top-left") {
-    ctx.textAlign = "left";
-    x = 20; y = 40;
-  } else if (position === "top-right") {
-    ctx.textAlign = "right";
-    x = canvas.width - 20; y = 40;
-  } else if (position === "center") {
-    ctx.textAlign = "center";
-    x = canvas.width / 2; y = canvas.height / 2;
-  } else if (position === "bottom-left") {
-    ctx.textAlign = "left";
-    x = 20; y = canvas.height - 20;
-  } else if (position === "bottom-right") {
-    ctx.textAlign = "right";
-    x = canvas.width - 20; y = canvas.height - 20;
+  switch (position) {
+    case "top-left":
+      x = 100; y = 50; break;
+    case "top-right":
+      x = canvas.width - 100; y = 50; break;
+    case "center":
+      x = canvas.width / 2; y = canvas.height / 2; break;
+    case "bottom-left":
+      x = 100; y = canvas.height - 50; break;
+    case "bottom-right":
+      x = canvas.width - 100; y = canvas.height - 50; break;
   }
 
   ctx.fillText(text, x, y);
-  ctx.globalAlpha = 1.0;
 }
 
-document.getElementById("textInput").addEventListener("input", drawWatermark);
-document.getElementById("position").addEventListener("change", drawWatermark);
-document.getElementById("fontSelect").addEventListener("change", drawWatermark);
-document.getElementById("colorPicker").addEventListener("input", drawWatermark);
-document.getElementById("opacitySlider").addEventListener("input", drawWatermark);
-
 function downloadImage() {
-  const link = document.createElement("a");
+  addWatermark();
+  let link = document.createElement("a");
   link.download = "watermarked-image.png";
   link.href = canvas.toDataURL();
   link.click();
 }
 
-document.getElementById("imageUploader").addEventListener("change", function (event) {
-  const file = event.target.files[0];
-  if (!file) return;
+function hexToRgb(hex) {
+  var bigint = parseInt(hex.slice(1), 16);
+  var r = (bigint >> 16) & 255;
+  var g = (bigint >> 8) & 255;
+  var b = bigint & 255;
+  return r + "," + g + "," + b;
+}
 
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const img = new Image();
+// Drag & Drop
+let dropZone = document.getElementById("dropZone");
+
+dropZone.addEventListener("dragover", function (e) {
+  e.preventDefault();
+  dropZone.classList.add("dragover");
+});
+
+dropZone.addEventListener("dragleave", function (e) {
+  e.preventDefault();
+  dropZone.classList.remove("dragover");
+});
+
+dropZone.addEventListener("drop", function (e) {
+  e.preventDefault();
+  dropZone.classList.remove("dragover");
+
+  let file = e.dataTransfer.files[0];
+  if (file) {
+    handleImage(file);
+  }
+});
+
+document.getElementById("imageLoader").addEventListener("change", function (e) {
+  let file = e.target.files[0];
+  if (file) {
+    handleImage(file);
+  }
+});
+
+function handleImage(file) {
+  let reader = new FileReader();
+  reader.onload = function (event) {
+    let img = new Image();
     img.onload = function () {
       canvas.width = img.width;
       canvas.height = img.height;
       ctx.drawImage(img, 0, 0);
-      drawWatermark();
+      uploadedImage = img;
     };
-    img.src = e.target.result;
+    img.src = event.target.result;
   };
   reader.readAsDataURL(file);
-});
+}

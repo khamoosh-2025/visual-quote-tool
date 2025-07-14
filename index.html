@@ -1,15 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>ابزار طراحی واترمارک</title>
+  <title>ابزار واترمارک با کشیدن و رها کردن</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>ابزار طراحی واترمارک</h1>
 
-  <label>بارگذاری تصویر: <input type="file" id="imageUploader" accept="image/*"></label><br><br>
+  <div id="dropZone" class="drop-zone">
+    <p>برای افزودن تصویر، آن را اینجا بکشید و رها کنید<br>یا از دکمه زیر استفاده کنید:</p>
+    <input type="file" id="imageLoader" name="imageLoader">
+  </div>
 
   <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea><br>
 
@@ -42,5 +44,6 @@
   <canvas id="imageCanvas"></canvas>
 
   <script src="script.js"></script>
+  <!-- نسخه ویرایش‌شده توسط khamoosh -->
 </body>
 </html>
