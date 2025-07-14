@@ -74,7 +74,36 @@ document.addEventListener("DOMContentLoaded", () => {
     box.appendChild(img);
     box.appendChild(meta);
     box.appendChild(delBtn);
+    
+    const shareBtn = document.createElement("button");
+    shareBtn.textContent = "📤 اشتراک‌گذاری";
+    shareBtn.className = "share-btn";
+    shareBtn.onclick = () => {
+      if (navigator.share) {
+        navigator.share({
+          title: item.desc || "تصویر گالری",
+          text: item.desc || "یک تصویر جالب از گالری من",
+          files: [dataURLtoFile(item.src, "gallery-image.png")]
+        });
+      } else {
+        alert("اشتراک‌گذاری توسط مرورگر پشتیبانی نمی‌شود.");
+      }
+    };
+
+    const printBtn = document.createElement("button");
+    printBtn.textContent = "🖨️ چاپ تصویر";
+    printBtn.className = "print-btn";
+    printBtn.onclick = () => {
+      const win = window.open();
+      win.document.write('<img src="' + item.src + '" style="max-width:100%">');
+      win.print();
+      win.close();
+    };
+
+    box.appendChild(shareBtn);
+    box.appendChild(printBtn);
     gallery.appendChild(box);
+
   }
 
   function updateFilterMenu() {
@@ -101,3 +130,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+function dataURLtoFile(dataurl, filename) {
+  let arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+  while(n--){
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], filename, {type:mime});
+}
