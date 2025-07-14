@@ -1,82 +1,53 @@
-let canvas = document.getElementById("canvas");
-let ctx = canvas.getContext("2d");
-let uploadedImage = null;
+const imageInput = document.getElementById("imageInput");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
-const textInput = document.getElementById("textInput");
-const position = document.getElementById("position");
-const fontSelect = document.getElementById("fontSelect");
-const colorPicker = document.getElementById("colorPicker");
-const opacitySlider = document.getElementById("opacitySlider");
-
-document.getElementById("imageInput").addEventListener("change", function (e) {
-  let file = e.target.files[0];
-  let reader = new FileReader();
-
-  reader.onload = function (event) {
-    let img = new Image();
-    img.onload = function () {
+imageInput.addEventListener("change", function(e) {
+  const reader = new FileReader();
+  reader.onload = function(event) {
+    const img = new Image();
+    img.onload = function() {
       canvas.width = img.width;
       canvas.height = img.height;
-      uploadedImage = img;
-      updateCanvas();
+      ctx.drawImage(img, 0, 0);
     };
     img.src = event.target.result;
   };
-
-  reader.readAsDataURL(file);
+  reader.readAsDataURL(e.target.files[0]);
 });
 
-[textInput, position, fontSelect, colorPicker, opacitySlider].forEach(el => {
-  el.addEventListener("input", updateCanvas);
-});
+function addWatermark() {
+  const text = document.getElementById("textInput").value;
+  const position = document.getElementById("position").value;
+  const font = document.getElementById("fontSelect").value;
+  const color = document.getElementById("colorPicker").value;
+  const opacity = parseFloat(document.getElementById("opacitySlider").value);
 
-function updateCanvas() {
-  if (!uploadedImage) return;
+  ctx.globalAlpha = opacity;
+  ctx.font = "40px " + font;
+  ctx.fillStyle = color;
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(uploadedImage, 0, 0);
-
-  let text = textInput.value;
-  let font = fontSelect.value;
-  let color = colorPicker.value;
-  let opacity = parseFloat(opacitySlider.value);
-
-  ctx.font = `40px ${font}`;
-  ctx.fillStyle = hexToRgba(color, opacity);
-  ctx.textAlign = "center";
-
-  let x = canvas.width / 2;
-  let y = canvas.height / 2;
-
-  switch (position.value) {
-    case "top-left":
-      x = 100; y = 60; break;
-    case "top-right":
-      x = canvas.width - 100; y = 60; break;
-    case "bottom-left":
-      x = 100; y = canvas.height - 40; break;
-    case "bottom-right":
-      x = canvas.width - 100; y = canvas.height - 40; break;
-    case "center":
-    default:
-      x = canvas.width / 2;
-      y = canvas.height / 2;
+  let x = 10, y = 50;
+  if (position === "top-right") x = canvas.width - 200;
+  if (position === "center") {
+    x = canvas.width / 2 - 100;
+    y = canvas.height / 2;
+  }
+  if (position === "bottom-left") {
+    y = canvas.height - 30;
+  }
+  if (position === "bottom-right") {
+    x = canvas.width - 200;
+    y = canvas.height - 30;
   }
 
   ctx.fillText(text, x, y);
-}
-
-function hexToRgba(hex, opacity) {
-  let bigint = parseInt(hex.slice(1), 16);
-  let r = (bigint >> 16) & 255;
-  let g = (bigint >> 8) & 255;
-  let b = bigint & 255;
-  return `rgba(${r},${g},${b},${opacity})`;
+  ctx.globalAlpha = 1.0;
 }
 
 function downloadImage() {
-  let link = document.createElement("a");
-  link.download = "visual-quote.png";
+  const link = document.createElement("a");
+  link.download = "image-with-text.png";
   link.href = canvas.toDataURL();
   link.click();
 }
