@@ -302,3 +302,48 @@ button:hover {
   cursor: pointer;
   color: white;
 }
+
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark .card {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+.switch {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+.switch input {
+  display: none;
+}
+.slider {
+  width: 50px;
+  height: 24px;
+  background: #ccc;
+  border-radius: 24px;
+  display: block;
+  cursor: pointer;
+  position: relative;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 2px;
+  top: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+input:checked + .slider {
+  background: #4caf50;
+}
