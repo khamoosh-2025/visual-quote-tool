@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <title>ابزار طراحی واترمارک</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>ابزار واترمارک زنده</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>ابزار طراحی واترمارک</h1>
-  <input type="file" id="imageLoader" name="imageLoader" />
-  <br><br>
-  <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea><br>
+  <h1>ابزار واترمارک تصویری (پیش‌نمایش زنده)</h1>
+
+  <input type="file" id="imageLoader" accept="image/*" />
+  <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea>
+
   <label for="position">موقعیت:</label>
   <select id="position">
     <option value="top-left">بالا چپ</option>
@@ -17,7 +18,8 @@
     <option value="center">مرکز</option>
     <option value="bottom-left">پایین چپ</option>
     <option value="bottom-right">پایین راست</option>
-  </select><br><br>
+  </select>
+
   <label for="fontSelect">فونت:</label>
   <select id="fontSelect">
     <option value="Tabassom">تبسم</option>
@@ -27,12 +29,19 @@
     <option value="Nastaligh">نستعلیق</option>
     <option value="Nastaligh-Shekaste">نستعلیق شکسته</option>
     <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
-  </select><br><br>
-  <label>رنگ: <input type="color" id="colorPicker" value="#ffffff"></label><br><br>
-  <label>شفافیت: <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5"></label><br><br>
+  </select>
+
+  <label>رنگ متن:</label>
+  <input type="color" id="colorPicker" value="#ffffff" />
+
+  <label>شفافیت:</label>
+  <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5" />
+
   <button onclick="downloadImage()">ذخیره تصویر</button>
+  <button onclick="resetCanvas()">حذف واترمارک</button>
+
   <canvas id="imageCanvas"></canvas>
+
   <script src="script.js"></script>
-  <!-- نسخه ویرایش‌شده توسط khamoosh -->
 </body>
 </html>
