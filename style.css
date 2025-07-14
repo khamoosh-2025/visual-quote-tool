@@ -192,3 +192,18 @@ button:hover {
   color: white;
   border: none;
 }
+
+.category-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.filter-btn span {
+  font-size: 0.9rem;
+  margin-right: 0.3rem;
+  color: #555;
+}

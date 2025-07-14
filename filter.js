@@ -302,3 +302,84 @@ const toggleViewBtn = document.getElementById("toggleViewBtn");
 toggleViewBtn.addEventListener("click", () => {
   gallery.classList.toggle("list-view");
 });
+
+
+function updateCategoryMenu() {
+  const counts = {};
+  const colorMap = {
+    "دل": "#2196f3",
+    "شب": "#3f51b5",
+    "طبیعت": "#4caf50",
+    "شهر": "#ff9800",
+    "default": "#9e9e9e"
+  };
+
+  gallery.querySelectorAll(".image-box").forEach(item => {
+    const cat = item.getAttribute("data-category") || "نامشخص";
+    counts[cat] = (counts[cat] || 0) + 1;
+  });
+
+  filterMenu.innerHTML = "";
+
+  Object.keys(counts).forEach(cat => {
+    const btn = document.createElement("button");
+    btn.className = "filter-btn";
+    btn.setAttribute("data-category", cat);
+    btn.innerHTML = `<span>(${counts[cat]})</span> ${cat} <span class="category-color" style="background:${colorMap[cat] || colorMap.default}"></span>`;
+    btn.onclick = () => {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      filterImagesByCategory(cat);
+    };
+    filterMenu.appendChild(btn);
+  });
+}
+
+function createBox(item) {
+  const box = document.createElement("div");
+  box.className = "image-box";
+  box.setAttribute("data-category", item.category || "نامشخص");
+
+  const img = document.createElement("img");
+  img.src = item.src;
+  img.alt = item.desc;
+
+  const desc = document.createElement("p");
+  desc.textContent = item.desc;
+
+  const tagsDiv = document.createElement("div");
+  tagsDiv.className = "tag-list";
+  tagsDiv.textContent = item.tags ? `برچسب‌ها: ${item.tags}` : "";
+
+  box.setAttribute("data-tags", item.tags.toLowerCase());
+
+  box.appendChild(img);
+  box.appendChild(desc);
+  box.appendChild(tagsDiv);
+
+  const delBtn = document.createElement("button");
+  delBtn.textContent = "🗑️ حذف";
+  delBtn.className = "delete-btn";
+  delBtn.onclick = () => {
+    box.remove();
+    saveGallery();
+    updateCategoryMenu();
+  };
+
+  const selBtn = document.createElement("button");
+  selBtn.textContent = "✔️ انتخاب";
+  selBtn.className = "select-btn";
+  selBtn.onclick = () => {
+    box.classList.toggle("selected");
+    if (selectedItems.has(box)) {
+      selectedItems.delete(box);
+    } else {
+      selectedItems.add(box);
+    }
+  };
+
+  box.appendChild(selBtn);
+  box.appendChild(delBtn);
+  gallery.appendChild(box);
+  updateCategoryMenu();
+}

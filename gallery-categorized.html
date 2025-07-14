@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>گالری با دسته‌بندی رنگی و شمارشگر</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="filter.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>📂 گالری دسته‌بندی شده</h1>
+  </header>
+
+  <main>
+    <section class="upload-section card">
+      <label for="imageInput">📷 تصویر:</label>
+      <input type="file" id="imageInput" accept="image/*"><br><br>
+
+      <label for="descInput">📝 توضیح:</label>
+      <input type="text" id="descInput"><br><br>
+
+      <label for="categoryInput">🏷️ دسته:</label>
+      <input type="text" id="categoryInput" placeholder="مثلاً طبیعت"><br><br>
+
+      <label for="tagsInput">🔖 برچسب‌ها:</label>
+      <input type="text" id="tagsInput"><br><br>
+
+      <button id="clearGalleryBtn" class="clear-all-btn">🧹 حذف کل گالری</button>
+    </section>
+
+    <section id="filterMenu" class="filter-menu card">
+      <!-- دسته‌ها و شمارشگر -->
+    </section>
+
+    <section id="gallery" class="gallery grid-gallery">
+      <!-- تصاویر -->
+    </section>
+  </main>
+</body>
+</html>
