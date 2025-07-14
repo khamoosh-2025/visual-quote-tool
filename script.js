@@ -1,8 +1,14 @@
-let canvas = document.getElementById("imageCanvas");
+let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 let uploadedImage = null;
 
-document.getElementById("imageLoader").addEventListener("change", function (e) {
+const textInput = document.getElementById("textInput");
+const position = document.getElementById("position");
+const fontSelect = document.getElementById("fontSelect");
+const colorPicker = document.getElementById("colorPicker");
+const opacitySlider = document.getElementById("opacitySlider");
+
+document.getElementById("imageInput").addEventListener("change", function (e) {
   let file = e.target.files[0];
   let reader = new FileReader();
 
@@ -11,8 +17,8 @@ document.getElementById("imageLoader").addEventListener("change", function (e) {
     img.onload = function () {
       canvas.width = img.width;
       canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
       uploadedImage = img;
+      updateCanvas();
     };
     img.src = event.target.result;
   };
@@ -20,80 +26,57 @@ document.getElementById("imageLoader").addEventListener("change", function (e) {
   reader.readAsDataURL(file);
 });
 
-function drawWatermark() {
+[textInput, position, fontSelect, colorPicker, opacitySlider].forEach(el => {
+  el.addEventListener("input", updateCanvas);
+});
+
+function updateCanvas() {
   if (!uploadedImage) return;
 
-  // اطلاعات ورودی
-  let text = document.getElementById("textInput").value;
-  let font = document.getElementById("fontSelect").value;
-  let position = document.getElementById("position").value;
-  let color = document.getElementById("colorPicker").value;
-  let opacity = document.getElementById("opacitySlider").value;
-
-  // بازسازی تصویر اصلی
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(uploadedImage, 0, 0);
 
-  // تنظیمات فونت و رنگ
+  let text = textInput.value;
+  let font = fontSelect.value;
+  let color = colorPicker.value;
+  let opacity = parseFloat(opacitySlider.value);
+
   ctx.font = `40px ${font}`;
-  ctx.fillStyle = hexToRGBA(color, opacity);
+  ctx.fillStyle = hexToRgba(color, opacity);
   ctx.textAlign = "center";
 
-  // محاسبه موقعیت
   let x = canvas.width / 2;
   let y = canvas.height / 2;
 
-  switch (position) {
+  switch (position.value) {
     case "top-left":
-      x = 100;
-      y = 60;
-      ctx.textAlign = "left";
-      break;
+      x = 100; y = 60; break;
     case "top-right":
-      x = canvas.width - 100;
-      y = 60;
-      ctx.textAlign = "right";
-      break;
+      x = canvas.width - 100; y = 60; break;
     case "bottom-left":
-      x = 100;
-      y = canvas.height - 40;
-      ctx.textAlign = "left";
-      break;
+      x = 100; y = canvas.height - 40; break;
     case "bottom-right":
-      x = canvas.width - 100;
-      y = canvas.height - 40;
-      ctx.textAlign = "right";
-      break;
+      x = canvas.width - 100; y = canvas.height - 40; break;
     case "center":
     default:
       x = canvas.width / 2;
       y = canvas.height / 2;
-      ctx.textAlign = "center";
-      break;
   }
 
-  // درج واترمارک
   ctx.fillText(text, x, y);
 }
 
+function hexToRgba(hex, opacity) {
+  let bigint = parseInt(hex.slice(1), 16);
+  let r = (bigint >> 16) & 255;
+  let g = (bigint >> 8) & 255;
+  let b = bigint & 255;
+  return `rgba(${r},${g},${b},${opacity})`;
+}
+
 function downloadImage() {
-  drawWatermark(); // اطمینان از اعمال واترمارک قبل از دانلود
   let link = document.createElement("a");
-  link.download = "watermarked-image.png";
+  link.download = "visual-quote.png";
   link.href = canvas.toDataURL();
   link.click();
 }
-
-function hexToRGBA(hex, opacity) {
-  let r = parseInt(hex.substr(1, 2), 16);
-  let g = parseInt(hex.substr(3, 2), 16);
-  let b = parseInt(hex.substr(5, 2), 16);
-  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-}
-
-// تغییرات هنگام تایپ یا انتخاب کاربر
-document.getElementById("textInput").addEventListener("input", drawWatermark);
-document.getElementById("fontSelect").addEventListener("change", drawWatermark);
-document.getElementById("position").addEventListener("change", drawWatermark);
-document.getElementById("colorPicker").addEventListener("input", drawWatermark);
-document.getElementById("opacitySlider").addEventListener("input", drawWatermark);
