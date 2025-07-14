@@ -1,25 +1,22 @@
-
 body {
-  font-family: sans-serif;
-  background: #f5f5f5;
-  direction: rtl;
+  margin: 0;
   padding: 20px;
-}
-
-h1 {
+  font-family: sans-serif;
+  background: #f8f8f8;
+  direction: rtl;
   text-align: center;
-}
-
-input, select, textarea, button {
-  display: block;
-  margin: 10px auto;
-  font-size: 1em;
 }
 
 canvas {
   display: block;
   margin: 20px auto;
-  border: 1px dashed #999;
   max-width: 100%;
+  border: 1px dashed #999;
   background: #fff;
+}
+
+textarea, input, select, button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
 }
