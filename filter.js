@@ -420,3 +420,45 @@ searchInput.addEventListener("input", () => {
     }
   });
 });
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeBtn = document.getElementById("closeBtn");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let currentIndex = -1;
+let imageElements = [];
+
+function updateImageList() {
+  imageElements = Array.from(document.querySelectorAll(".image-box img"));
+  imageElements.forEach((img, index) => {
+    img.onclick = () => openLightbox(index);
+  });
+}
+
+function openLightbox(index) {
+  currentIndex = index;
+  lightbox.style.display = "block";
+  lightboxImg.src = imageElements[currentIndex].src;
+}
+
+function closeLightbox() {
+  lightbox.style.display = "none";
+}
+
+function showPrev() {
+  if (currentIndex > 0) openLightbox(currentIndex - 1);
+}
+
+function showNext() {
+  if (currentIndex < imageElements.length - 1) openLightbox(currentIndex + 1);
+}
+
+closeBtn.onclick = closeLightbox;
+prevBtn.onclick = showPrev;
+nextBtn.onclick = showNext;
+
+document.addEventListener("DOMContentLoaded", updateImageList);
+const observer = new MutationObserver(updateImageList);
+observer.observe(document.getElementById("gallery"), { childList: true });
