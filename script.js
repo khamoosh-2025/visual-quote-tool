@@ -1,3 +1,4 @@
+
 let canvas = document.getElementById("imageCanvas");
 let ctx = canvas.getContext("2d");
 let uploadedImage = null;
@@ -25,43 +26,30 @@ function downloadImage() {
 
   let text = document.getElementById("textInput").value;
   let font = document.getElementById("fontSelect").value;
-  let position = document.getElementById("position").value;
   let color = document.getElementById("colorPicker").value;
-  let opacity = parseFloat(document.getElementById("opacitySlider").value);
+  let opacity = document.getElementById("opacitySlider").value;
 
   ctx.drawImage(uploadedImage, 0, 0);
-
   ctx.font = `40px ${font}`;
   ctx.fillStyle = color;
   ctx.globalAlpha = opacity;
   ctx.textAlign = "center";
 
+  let pos = document.getElementById("position").value;
   let x = canvas.width / 2;
-  let y = canvas.height / 2;
+  let y = canvas.height - 50;
 
-  switch (position) {
-    case "top-left":
-      x = 50;
-      y = 50;
-      break;
-    case "top-right":
-      x = canvas.width - 50;
-      y = 50;
-      break;
-    case "center":
-      x = canvas.width / 2;
-      y = canvas.height / 2;
-      break;
-    case "bottom-left":
-      x = 50;
-      y = canvas.height - 50;
-      break;
-    case "bottom-right":
-      x = canvas.width - 50;
-      y = canvas.height - 50;
-      break;
+  if (pos === "top-left") {
+    x = 50; y = 50;
+  } else if (pos === "top-right") {
+    x = canvas.width - 50; y = 50;
+  } else if (pos === "bottom-left") {
+    x = 50; y = canvas.height - 50;
+  } else if (pos === "bottom-right") {
+    x = canvas.width - 50; y = canvas.height - 50;
   }
 
   ctx.fillText(text, x, y);
-  ctx.globalAlpha = 1;
+  ctx.globalAlpha = 1.0;
 }
+

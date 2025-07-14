@@ -1,20 +1,13 @@
+
 body {
   margin: 0;
   padding: 0;
-  font-family: Shabnam, sans-serif;
-  background: #f4f4f4;
-  text-align: center;
+  font-family: sans-serif;
+  background: #f0f0f0;
   direction: rtl;
+  text-align: center;
 }
-h1.title {
-  font-size: 2.5em;
-  margin-top: 2rem;
-}
-p.subtitle {
-  font-size: 1.2em;
-  margin-bottom: 3rem;
-  color: #555;
-}
+
 canvas {
   display: block;
   margin: 20px auto;
@@ -22,12 +15,33 @@ canvas {
   border: 1px dashed #999;
   background: #fff;
 }
-.tool-link {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 10px 20px;
-  background-color: #222;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
+
+/* فونت‌ها */
+@font-face {
+  font-family: 'Tabassom';
+  src: url('fonts/Tabassom.ttf');
+}
+@font-face {
+  font-family: 'Bita';
+  src: url('fonts/Bita.ttf');
+}
+@font-face {
+  font-family: 'TahrirBadkhat';
+  src: url('fonts/TahrirBadkhat.ttf');
+}
+@font-face {
+  font-family: 'Zahabi';
+  src: url('fonts/Zahabi.ttf');
+}
+@font-face {
+  font-family: 'Nastaligh';
+  src: url('fonts/Nastaligh.ttf');
+}
+@font-face {
+  font-family: 'NastalighShekaste';
+  src: url('fonts/NastalighShekaste.ttf');
+}
+@font-face {
+  font-family: 'NastalighKeshide';
+  src: url('fonts/NastalighKeshide.ttf');
 }
