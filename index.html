@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>نقل‌قول تصویری</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>ابزار نگارش تصویری</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>نقل‌قول تصویری</h1>
-    <textarea id="quote" placeholder="نقل‌قول خود را بنویسید..."></textarea>
-    <input type="text" id="watermark" placeholder="متن واترمارک..." />
-    <button onclick="generateImage()">تولید تصویر</button>
-    <div id="preview-area">
-      <canvas id="quoteCanvas" width="500" height="400"></canvas>
-    </div>
-  </div>
+  <h1>ابزار نگارش تصویری با فونت فارسی</h1>
+
+  <input type="file" id="imageInput">
+
+  <label for="presetText">جملات آماده:</label>
+  <select id="presetText" onchange="setPresetText()">
+    <option value="">— انتخاب کنید —</option>
+    <option value="ندای دل">ندای دل</option>
+    <option value="خاموشی می‌نویسد...">خاموشی می‌نویسد…</option>
+    <option value="گوشه دل">گوشه دل</option>
+    <option value="نجوای شبانه">نجوای شبانه</option>
+  </select>
+
+  <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea>
+
+  <label for="position">موقعیت:</label>
+  <select id="position">
+    <option value="top-left">بالا چپ</option>
+    <option value="top-right">بالا راست</option>
+    <option value="center">مرکز</option>
+    <option value="bottom-left">پایین چپ</option>
+    <option value="bottom-right">پایین راست</option>
+  </select>
+
+  <label for="fontSelect">فونت:</label>
+  <select id="fontSelect">
+    <option value="Bita">بیتا</option>
+    <option value="Tabassom">تبسم</option>
+    <option value="TahrirBadkhat">تحریر بدخط</option>
+    <option value="Zahabi">ذهبی</option>
+    <option value="Nastaligh">نستعلیق</option>
+    <option value="Nastaligh-Shekaste">نستعلیق شکسته</option>
+    <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
+  </select>
+
+  <input type="color" id="colorPicker" value="#ffffff">
+  <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5">
+
+  <button onclick="addWatermark()">افزودن واترمارک</button>
+  <button onclick="downloadImage()">دانلود تصویر</button>
+
+  <canvas id="canvas"></canvas>
 
   <script src="script.js"></script>
 </body>
