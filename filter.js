@@ -140,3 +140,43 @@ function dataURLtoFile(dataurl, filename) {
   }
   return new File([u8arr], filename, {type:mime});
 }
+
+
+const bgColorPicker = document.getElementById("bgColorPicker");
+const bgImageInput = document.getElementById("bgImageInput");
+const resetBtn = document.getElementById("resetBackground");
+
+bgColorPicker.addEventListener("input", () => {
+  document.body.style.background = bgColorPicker.value;
+  localStorage.setItem("bgColor", bgColorPicker.value);
+  localStorage.removeItem("bgImage");
+});
+
+bgImageInput.addEventListener("change", (e) => {
+  let file = e.target.files[0];
+  let reader = new FileReader();
+  reader.onload = function(event) {
+    document.body.style.background = `url(${event.target.result}) no-repeat center center / cover`;
+    localStorage.setItem("bgImage", event.target.result);
+    localStorage.removeItem("bgColor");
+  };
+  reader.readAsDataURL(file);
+});
+
+resetBtn.addEventListener("click", () => {
+  document.body.style.background = "";
+  localStorage.removeItem("bgColor");
+  localStorage.removeItem("bgImage");
+});
+
+// اعمال پس‌زمینه ذخیره‌شده
+window.addEventListener("load", () => {
+  const savedColor = localStorage.getItem("bgColor");
+  const savedImage = localStorage.getItem("bgImage");
+  if (savedColor) {
+    document.body.style.background = savedColor;
+    bgColorPicker.value = savedColor;
+  } else if (savedImage) {
+    document.body.style.background = `url(${savedImage}) no-repeat center center / cover`;
+  }
+});
