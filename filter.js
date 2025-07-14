@@ -383,3 +383,26 @@ function createBox(item) {
   gallery.appendChild(box);
   updateCategoryMenu();
 }
+
+
+const deleteSelectedBtn = document.getElementById("deleteSelectedBtn");
+const downloadSelectedBtn = document.getElementById("downloadSelectedBtn");
+
+deleteSelectedBtn.addEventListener("click", () => {
+  selectedItems.forEach(item => item.remove());
+  selectedItems.clear();
+  saveGallery();
+  updateCategoryMenu();
+});
+
+downloadSelectedBtn.addEventListener("click", () => {
+  selectedItems.forEach(item => {
+    const img = item.querySelector("img");
+    const link = document.createElement("a");
+    link.href = img.src;
+    link.download = img.alt || "downloaded-image";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+});

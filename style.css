@@ -207,3 +207,32 @@ button:hover {
   margin-right: 0.3rem;
   color: #555;
 }
+
+.image-box.selected {
+  outline: 4px solid #ff9800;
+  background-color: #fff3e0;
+}
+
+.batch-actions {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.batch-actions button {
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+#deleteSelectedBtn {
+  background-color: #f44336;
+  color: white;
+}
+
+#downloadSelectedBtn {
+  background-color: #4caf50;
+  color: white;
+}
