@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>گم‌نام خاموش فراری</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      background-color: #fefefe;
-      color: #222;
-      padding: 3rem 1rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 2rem;
-    }
-    a {
-      display: inline-block;
-      background-color: #222;
-      color: #fff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      background-color: #444;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>ابزار طراحی واترمارک</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>گم‌نام خاموش فراری</h1>
-  <p>…آواز واژه‌ها از خاموشی برمی‌خیزد</p>
-  <a href="tools.html">ابزار طراحی واترمارک</a>
+  <h1>ابزار طراحی واترمارک</h1>
+
+  <p class="quote">🖋️ "آب، تصویر آینه را با یک لرزش می‌رباید؛ دل را اما، واژه‌ای آرام، ماندگار می‌کند..."</p>
+
+  <input type="file" id="imageLoader" name="imageLoader" />
+  <br><br>
+
+  <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea><br>
+
+  <label for="position">موقعیت:</label>
+  <select id="position">
+    <option value="top-left">بالا چپ</option>
+    <option value="top-right">بالا راست</option>
+    <option value="center">مرکز</option>
+    <option value="bottom-left">پایین چپ</option>
+    <option value="bottom-right">پایین راست</option>
+  </select><br><br>
+
+  <label for="fontSelect">فونت:</label>
+  <select id="fontSelect">
+    <option value="Tabassom">تبسم</option>
+    <option value="Bita">بیتا</option>
+    <option value="TahrirBadkhat">تحریر بدخط</option>
+    <option value="Zahabi">ذهبی</option>
+    <option value="Nastaligh">نستعلیق</option>
+    <option value="Nastaligh-Shekaste">نستعلیق شکسته</option>
+    <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
+  </select><br><br>
+
+  <label>رنگ: <input type="color" id="colorPicker" value="#ffffff"></label><br><br>
+  <label>شفافیت: <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5"></label><br><br>
+
+  <button onclick="downloadImage()">ذخیره تصویر</button>
+
+  <canvas id="imageCanvas"></canvas>
+
+  <script src="script.js"></script>
 </body>
 </html>

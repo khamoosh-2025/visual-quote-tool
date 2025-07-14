@@ -1,11 +1,16 @@
-
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background: #f0f0f0;
+  font-family: Shabnam, sans-serif;
+  background: #f4f4f4;
   direction: rtl;
   text-align: center;
+}
+
+.quote {
+  font-style: italic;
+  color: #444;
+  margin: 20px;
 }
 
 canvas {
@@ -16,32 +21,8 @@ canvas {
   background: #fff;
 }
 
-/* فونت‌ها */
-@font-face {
-  font-family: 'Tabassom';
-  src: url('fonts/Tabassom.ttf');
-}
-@font-face {
-  font-family: 'Bita';
-  src: url('fonts/Bita.ttf');
-}
-@font-face {
-  font-family: 'TahrirBadkhat';
-  src: url('fonts/TahrirBadkhat.ttf');
-}
-@font-face {
-  font-family: 'Zahabi';
-  src: url('fonts/Zahabi.ttf');
-}
-@font-face {
-  font-family: 'Nastaligh';
-  src: url('fonts/Nastaligh.ttf');
-}
-@font-face {
-  font-family: 'NastalighShekaste';
-  src: url('fonts/NastalighShekaste.ttf');
-}
-@font-face {
-  font-family: 'NastalighKeshide';
-  src: url('fonts/NastalighKeshide.ttf');
+textarea, select, input[type="color"], input[type="range"], button {
+  margin: 10px;
+  padding: 8px;
+  font-family: inherit;
 }
