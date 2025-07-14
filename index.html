@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>ابزار نگارش تصویری</title>
+  <title>ابزار نگارش تصویری با قاب</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>ابزار نگارش تصویری با فونت فارسی</h1>
+  <h1>ابزار نگارش تصویری با فونت فارسی و قاب انتخابی</h1>
 
   <input type="file" id="imageInput">
   <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea>
@@ -31,11 +32,17 @@
     <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
   </select>
 
+  <label for="frameSelect">قاب:</label>
+  <select id="frameSelect">
+    <option value="none">بدون قاب</option>
+    <option value="black">قاب مشکی</option>
+    <option value="gold">قاب طلایی</option>
+  </select>
+
   <input type="color" id="colorPicker" value="#ffffff">
   <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5">
 
   <button onclick="addWatermark()">افزودن واترمارک</button>
-  <button onclick="clearCanvas()">پاک‌سازی</button>
   <button onclick="downloadImage()">دانلود تصویر</button>
 
   <canvas id="canvas"></canvas>
