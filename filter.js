@@ -180,3 +180,60 @@ window.addEventListener("load", () => {
     document.body.style.background = `url(${savedImage}) no-repeat center center / cover`;
   }
 });
+
+
+const deleteSelectedBtn = document.getElementById("deleteSelectedBtn");
+let selectedItems = new Set();
+
+deleteSelectedBtn.addEventListener("click", () => {
+  if (selectedItems.size === 0) {
+    alert("هیچ تصویری انتخاب نشده است.");
+    return;
+  }
+
+  const confirmDelete = confirm("آیا از حذف تصاویر انتخاب‌شده اطمینان دارید؟");
+  if (confirmDelete) {
+    selectedItems.forEach(box => box.remove());
+    selectedItems.clear();
+    saveGallery();
+  }
+});
+
+function createBox(item) {
+  const box = document.createElement("div");
+  box.className = "image-box";
+
+  const img = document.createElement("img");
+  img.src = item.src;
+  img.alt = item.desc;
+
+  const desc = document.createElement("p");
+  desc.textContent = item.desc;
+
+  box.appendChild(img);
+  box.appendChild(desc);
+
+  const delBtn = document.createElement("button");
+  delBtn.textContent = "🗑️ حذف";
+  delBtn.className = "delete-btn";
+  delBtn.onclick = () => {
+    box.remove();
+    saveGallery();
+  };
+
+  const selBtn = document.createElement("button");
+  selBtn.textContent = "✔️ انتخاب";
+  selBtn.className = "select-btn";
+  selBtn.onclick = () => {
+    box.classList.toggle("selected");
+    if (selectedItems.has(box)) {
+      selectedItems.delete(box);
+    } else {
+      selectedItems.add(box);
+    }
+  };
+
+  box.appendChild(selBtn);
+  box.appendChild(delBtn);
+  gallery.appendChild(box);
+}

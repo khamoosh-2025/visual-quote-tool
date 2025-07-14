@@ -123,3 +123,24 @@ button:hover {
   border: 1px dashed #ccc;
   margin-bottom: 1rem;
 }
+
+.selected {
+  border: 4px solid crimson !important;
+}
+
+.delete-btn, .select-btn {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.delete-selected-btn {
+  background: crimson;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
