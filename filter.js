@@ -526,3 +526,17 @@ const observerCat = new MutationObserver(() => {
   updateCategoryFilterOptions();
 });
 observerCat.observe(document.getElementById("gallery"), { childList: true });
+
+const tagSearch = document.getElementById("tagSearch");
+
+tagSearch.addEventListener("input", function () {
+  const searchTerm = this.value.toLowerCase().trim();
+  document.querySelectorAll(".image-box").forEach((box) => {
+    const tags = box.getAttribute("data-tags")?.toLowerCase() || "";
+    if (tags.includes(searchTerm) || searchTerm === "") {
+      box.style.display = "inline-block";
+    } else {
+      box.style.display = "none";
+    }
+  });
+});
