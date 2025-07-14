@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
   background: #f0f0f0;
   direction: rtl;
+  text-align: center;
 }
 
 canvas {
@@ -12,4 +13,10 @@ canvas {
   max-width: 100%;
   border: 1px dashed #999;
   background: #fff;
+}
+
+textarea, select, input, button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 1rem;
 }
