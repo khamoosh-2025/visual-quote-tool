@@ -1,15 +1,35 @@
 body {
   font-family: sans-serif;
-  background: #f9f9f9;
   direction: rtl;
-  text-align: center;
+  background-color: #f4f4f4;
   padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+textarea, select, input[type="file"], input[type="color"], input[type="range"] {
+  margin: 10px;
+  padding: 8px;
+  width: 250px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: #009688;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 canvas {
-  display: block;
-  margin: 20px auto;
-  max-width: 100%;
+  margin-top: 20px;
   border: 1px dashed #999;
-  background: #fff;
+  max-width: 100%;
 }

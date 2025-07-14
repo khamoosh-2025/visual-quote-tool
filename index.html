@@ -2,14 +2,14 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>نگارش تصویری</title>
+  <title>ابزار نگارش تصویری</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>نگارش تصویری با فونت فارسی</h1>
+  <h1>ابزار نگارش تصویری با فونت فارسی</h1>
 
-  <input type="file" id="imageInput"><br><br>
-  <textarea id="textInput" placeholder="متن واترمارک..."></textarea><br>
+  <input type="file" id="imageInput">
+  <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea>
 
   <label for="position">موقعیت:</label>
   <select id="position">
@@ -18,7 +18,7 @@
     <option value="center">مرکز</option>
     <option value="bottom-left">پایین چپ</option>
     <option value="bottom-right">پایین راست</option>
-  </select><br><br>
+  </select>
 
   <label for="fontSelect">فونت:</label>
   <select id="fontSelect">
@@ -29,12 +29,13 @@
     <option value="Nastaligh">نستعلیق</option>
     <option value="Nastaligh-Shekaste">نستعلیق شکسته</option>
     <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
-  </select><br><br>
+  </select>
 
-  <label>رنگ: <input type="color" id="colorPicker" value="#ffffff"></label><br><br>
-  <label>شفافیت: <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5"></label><br><br>
+  <input type="color" id="colorPicker" value="#ffffff">
+  <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5">
 
-  <button onclick="addWatermark()">افزودن متن</button>
+  <button onclick="addWatermark()">افزودن واترمارک</button>
+  <button onclick="clearCanvas()">پاک‌سازی</button>
   <button onclick="downloadImage()">دانلود تصویر</button>
 
   <canvas id="canvas"></canvas>
