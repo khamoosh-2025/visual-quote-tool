@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>ویرایشگر تصویر</title>
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <h1>ابزار ویرایش تصویر</h1>
+  <input type="file" id="upload" accept="image/*"><br><br>
+
+  <label>متن: <input type="text" id="textInput"></label>
+  <label>رنگ: <input type="color" id="textColor" value="#000000"></label><br><br>
+  <label>اندازه: <input type="range" id="textSize" min="10" max="100" value="40"></label><br><br>
+
+  <label>فیلتر:
+    <select id="filterSelect">
+      <option value="none">بدون فیلتر</option>
+      <option value="grayscale">سیاه و سفید</option>
+      <option value="contrast">کنتراست</option>
+      <option value="brightness">روشن‌تر</option>
+    </select>
+  </label><br><br>
+
+  <button onclick="applyChanges()">اعمال تغییرات</button>
+  <button onclick="downloadImage()">دانلود</button>
+
+  <canvas id="canvas"></canvas>
+
+  <script src="editor.js"></script>
+</body>
+</html>

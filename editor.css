@@ -1,0 +1,14 @@
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  direction: rtl;
+  background: #f9f9f9;
+  padding: 20px;
+}
+
+canvas {
+  margin-top: 20px;
+  border: 1px dashed #aaa;
+  max-width: 100%;
+}
