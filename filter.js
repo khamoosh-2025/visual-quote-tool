@@ -406,3 +406,17 @@ downloadSelectedBtn.addEventListener("click", () => {
     document.body.removeChild(link);
   });
 });
+
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  document.querySelectorAll(".image-box").forEach(box => {
+    const desc = box.querySelector("p").textContent.toLowerCase();
+    const tags = box.getAttribute("data-tags") || "";
+    if (desc.includes(query) || tags.includes(query)) {
+      box.style.display = "";
+    } else {
+      box.style.display = "none";
+    }
+  });
+});

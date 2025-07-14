@@ -236,3 +236,16 @@ button:hover {
   background-color: #4caf50;
   color: white;
 }
+
+.search-bar {
+  text-align: center;
+  margin: 1rem auto;
+}
+#searchInput {
+  padding: 0.7rem 1rem;
+  width: 90%;
+  max-width: 500px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
