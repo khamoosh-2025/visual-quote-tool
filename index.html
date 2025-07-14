@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -36,7 +37,8 @@
   <label>رنگ: <input type="color" id="colorPicker" value="#ffffff"></label><br><br>
   <label>شفافیت: <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5"></label><br><br>
 
-  <button onclick="drawWatermark()">افزودن واترمارک</button>
+  <button onclick="addWatermark()">افزودن واترمارک</button>
+  <button onclick="resetCanvas()">بازنشانی</button>
   <button onclick="downloadImage()">ذخیره تصویر</button>
 
   <canvas id="imageCanvas"></canvas>
