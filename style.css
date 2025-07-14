@@ -1,16 +1,13 @@
 body {
-  font-family: Tahoma, sans-serif;
+  font-family: sans-serif;
   direction: rtl;
+  text-align: center;
+  background-color: #f0f0f0;
   padding: 20px;
-  background: #f9f9f9;
 }
-textarea {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-}
+
 canvas {
-  display: block;
   margin-top: 20px;
+  border: 1px solid #ccc;
   max-width: 100%;
 }
