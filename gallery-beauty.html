@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>گالری حرفه‌ای</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="filter.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>🎨 گالری تصاویر پیشرفته</h1>
+  </header>
+
+  <main>
+    <section class="upload-section card">
+      <label for="imageInput">📷 انتخاب تصویر:</label>
+      <input type="file" id="imageInput" accept="image/*"><br><br>
+
+      <label for="descInput">📝 توضیح:</label>
+      <input type="text" id="descInput"><br><br>
+
+      <label for="categoryInput">🏷️ دسته:</label>
+      <input type="text" id="categoryInput"><br><br>
+
+      <label for="filterSelect">🎭 فیلتر:</label>
+      <select id="filterSelect">
+        <option value="none">بدون فیلتر</option>
+        <option value="grayscale(100%)">سیاه‌وسفید</option>
+        <option value="blur(2px)">محو</option>
+        <option value="contrast(150%)">کنتراست</option>
+        <option value="sepia(80%)">قهوه‌ای</option>
+      </select><br><br>
+
+      <button id="clearGalleryBtn" class="clear-all-btn">🧹 حذف کل گالری</button>
+    </section>
+
+    <section id="filterMenu" class="filter-menu card">
+      <button data-category="all" class="filter-btn active">نمایش همه</button>
+    </section>
+
+    <section id="gallery" class="gallery grid-gallery">
+      <!-- تصاویر نمایش داده می‌شوند -->
+    </section>
+  </main>
+</body>
+</html>
