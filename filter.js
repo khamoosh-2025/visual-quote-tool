@@ -237,3 +237,62 @@ function createBox(item) {
   box.appendChild(delBtn);
   gallery.appendChild(box);
 }
+
+
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", () => {
+  const keyword = searchInput.value.toLowerCase();
+  const items = gallery.querySelectorAll(".image-box");
+  items.forEach(item => {
+    const desc = item.querySelector("p").textContent.toLowerCase();
+    const tags = item.getAttribute("data-tags") || "";
+    item.style.display = (desc.includes(keyword) || tags.includes(keyword)) ? "" : "none";
+  });
+});
+
+function createBox(item) {
+  const box = document.createElement("div");
+  box.className = "image-box";
+
+  const img = document.createElement("img");
+  img.src = item.src;
+  img.alt = item.desc;
+
+  const desc = document.createElement("p");
+  desc.textContent = item.desc;
+
+  const tagsDiv = document.createElement("div");
+  tagsDiv.className = "tag-list";
+  tagsDiv.textContent = item.tags ? `برچسب‌ها: ${item.tags}` : "";
+
+  box.setAttribute("data-tags", item.tags.toLowerCase());
+
+  box.appendChild(img);
+  box.appendChild(desc);
+  box.appendChild(tagsDiv);
+
+  const delBtn = document.createElement("button");
+  delBtn.textContent = "🗑️ حذف";
+  delBtn.className = "delete-btn";
+  delBtn.onclick = () => {
+    box.remove();
+    saveGallery();
+  };
+
+  const selBtn = document.createElement("button");
+  selBtn.textContent = "✔️ انتخاب";
+  selBtn.className = "select-btn";
+  selBtn.onclick = () => {
+    box.classList.toggle("selected");
+    if (selectedItems.has(box)) {
+      selectedItems.delete(box);
+    } else {
+      selectedItems.add(box);
+    }
+  };
+
+  box.appendChild(selBtn);
+  box.appendChild(delBtn);
+  gallery.appendChild(box);
+}

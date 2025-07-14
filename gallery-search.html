@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>گالری با جستجو و برچسب</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="filter.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>🔎 گالری با جستجو و برچسب‌ها</h1>
+  </header>
+
+  <main>
+    <section class="search-section card">
+      <input type="text" id="searchInput" placeholder="جستجو در تصاویر یا برچسب‌ها...">
+    </section>
+
+    <section class="upload-section card">
+      <label for="imageInput">📷 تصویر:</label>
+      <input type="file" id="imageInput" accept="image/*"><br><br>
+
+      <label for="descInput">📝 توضیح:</label>
+      <input type="text" id="descInput"><br><br>
+
+      <label for="categoryInput">🏷️ دسته:</label>
+      <input type="text" id="categoryInput"><br><br>
+
+      <label for="tagsInput">🔖 برچسب‌ها (با کاما جدا کنید):</label>
+      <input type="text" id="tagsInput" placeholder="مثلاً: دل,شب,طبیعت"><br><br>
+
+      <button id="clearGalleryBtn" class="clear-all-btn">🧹 حذف کل گالری</button>
+    </section>
+
+    <section id="filterMenu" class="filter-menu card">
+      <button data-category="all" class="filter-btn active">نمایش همه</button>
+    </section>
+
+    <section id="gallery" class="gallery grid-gallery">
+      <!-- تصاویر -->
+    </section>
+  </main>
+</body>
+</html>
