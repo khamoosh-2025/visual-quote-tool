@@ -1,22 +1,62 @@
 body {
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background: #f0f0f0;
+  padding: 20px;
+  font-family: "Tahoma", sans-serif;
+  background: #f5f5f5;
   direction: rtl;
   text-align: center;
+  color: #333;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+input[type="file"],
+textarea,
+select,
+input[type="color"],
+input[type="range"] {
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+  width: 80%;
+  max-width: 400px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background: white;
+}
+
+textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
 }
 
 canvas {
   display: block;
-  margin: 20px auto;
+  margin: 30px auto;
   max-width: 100%;
-  border: 1px dashed #999;
+  border: 2px dashed #999;
   background: #fff;
-}
-
-textarea, select, input, button {
-  margin: 5px;
-  padding: 10px;
-  font-size: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
