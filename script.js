@@ -1,69 +1,41 @@
+function generateImage() {
+  const canvas = document.getElementById("quoteCanvas");
+  const ctx = canvas.getContext("2d");
+  const quote = document.getElementById("quote").value;
+  const watermark = document.getElementById("watermark").value;
 
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
+  // زمینه مشکی
+  ctx.fillStyle = "#111";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-document.getElementById("imageInput").addEventListener("change", function (e) {
-  const file = e.target.files[0];
-  const reader = new FileReader();
-  reader.onload = function (event) {
-    const img = new Image();
-    img.onload = function () {
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
-    };
-    img.src = event.target.result;
-  };
-  reader.readAsDataURL(file);
-});
-
-function addWatermark() {
-  const text = document.getElementById("textInput").value;
-  const position = document.getElementById("position").value;
-  const font = document.getElementById("fontSelect").value;
-  const color = document.getElementById("colorPicker").value;
-  const opacity = document.getElementById("opacitySlider").value;
-
-  ctx.globalAlpha = opacity;
-  ctx.fillStyle = color;
-  ctx.font = "36px " + font;
+  // متن نقل‌قول
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 20px sans-serif";
   ctx.textAlign = "center";
+  wrapText(ctx, quote, canvas.width / 2, 100, 400, 30);
 
-  let x = canvas.width / 2;
-  let y = canvas.height / 2;
-
-  switch (position) {
-    case "top-left":
-      x = 50;
-      y = 50;
-      ctx.textAlign = "start";
-      break;
-    case "top-right":
-      x = canvas.width - 50;
-      y = 50;
-      ctx.textAlign = "end";
-      break;
-    case "center":
-      break;
-    case "bottom-left":
-      x = 50;
-      y = canvas.height - 50;
-      ctx.textAlign = "start";
-      break;
-    case "bottom-right":
-      x = canvas.width - 50;
-      y = canvas.height - 50;
-      ctx.textAlign = "end";
-      break;
-  }
-
-  ctx.fillText(text, x, y);
-  ctx.globalAlpha = 1.0;
+  // واترمارک پایین
+  ctx.fillStyle = "#888";
+  ctx.font = "14px sans-serif";
+  ctx.textAlign = "right";
+  ctx.fillText(watermark, canvas.width - 10, canvas.height - 20);
 }
 
-function downloadImage() {
-  const link = document.createElement("a");
-  link.download = "watermarked-image.png";
-  link.href = canvas.toDataURL("image/png");
-  link.click();
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(" ");
+  let line = "";
+
+  for (let n = 0; n < words.length; n++) {
+    const testLine = line + words[n] + " ";
+    const metrics = ctx.measureText(testLine);
+    const testWidth = metrics.width;
+    if (testWidth > maxWidth && n > 0) {
+      ctx.fillText(line, x, y);
+      line = words[n] + " ";
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  ctx.fillText(line, x, y);
 }
