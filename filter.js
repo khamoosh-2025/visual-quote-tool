@@ -492,3 +492,37 @@ function editMetadata(box) {
     box.setAttribute("data-tags", newTags);
   }
 }
+
+const categoryFilter = document.getElementById("categoryFilter");
+
+function updateCategoryFilterOptions() {
+  const categories = new Set(["all"]);
+  document.querySelectorAll(".image-box").forEach((box) => {
+    const cat = box.getAttribute("data-category");
+    if (cat) categories.add(cat);
+  });
+
+  categoryFilter.innerHTML = "";
+  categories.forEach((cat) => {
+    const opt = document.createElement("option");
+    opt.value = cat;
+    opt.textContent = cat === "all" ? "نمایش همه" : cat;
+    categoryFilter.appendChild(opt);
+  });
+}
+
+categoryFilter.addEventListener("change", function () {
+  const selected = this.value;
+  document.querySelectorAll(".image-box").forEach((box) => {
+    if (selected === "all" || box.getAttribute("data-category") === selected) {
+      box.style.display = "inline-block";
+    } else {
+      box.style.display = "none";
+    }
+  });
+});
+
+const observerCat = new MutationObserver(() => {
+  updateCategoryFilterOptions();
+});
+observerCat.observe(document.getElementById("gallery"), { childList: true });
