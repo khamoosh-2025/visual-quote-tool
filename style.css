@@ -1,18 +1,36 @@
-#imagePreviewContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 15px;
+body {
+  font-family: "Tahoma", sans-serif;
+  text-align: center;
+  direction: rtl;
+  background-color: #f9f9f9;
+  padding: 20px;
+  color: #333;
 }
 
-#imagePreviewContainer img {
-  width: 100px;
-  height: auto;
-  border: 2px solid #ccc;
-  cursor: pointer;
-  transition: 0.3s ease;
+h1 {
+  color: #444;
+  margin-bottom: 20px;
 }
 
-#imagePreviewContainer img.selected {
-  border: 3px solid #ff5722;
+input[type="file"],
+textarea,
+select,
+input[type="color"],
+input[type="number"],
+input[type="range"],
+button {
+  margin: 10px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+textarea {
+  width: 80%;
+  height: 60px;
+}
+
+canvas {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  max-width: 90%;
 }

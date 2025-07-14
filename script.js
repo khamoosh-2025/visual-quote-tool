@@ -1,66 +1,66 @@
-let selectedImage = null;
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+let image = new Image();
 
-document.getElementById('imageInput').addEventListener('change', function (e) {
-  const container = document.getElementById('imagePreviewContainer');
-  container.innerHTML = '';
-  const files = e.target.files;
-
-  for (let i = 0; i < files.length; i++) {
-    const img = document.createElement('img');
-    img.src = URL.createObjectURL(files[i]);
-    img.dataset.index = i;
-    img.addEventListener('click', () => selectImage(img, files[i]));
-    container.appendChild(img);
-  }
+document.getElementById("imageInput").addEventListener("change", function(e) {
+  const reader = new FileReader();
+  reader.onload = function(event) {
+    image.onload = function() {
+      drawImageWithBorder();
+    };
+    image.src = event.target.result;
+  };
+  reader.readAsDataURL(e.target.files[0]);
 });
 
-function selectImage(imgElement, file) {
-  const allImages = document.querySelectorAll('#imagePreviewContainer img');
-  allImages.forEach(img => img.classList.remove('selected'));
-  imgElement.classList.add('selected');
+function drawImageWithBorder() {
+  const borderWidth = parseInt(document.getElementById("borderSize").value, 10);
+  const borderColor = document.getElementById("borderColor").value;
 
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const image = new Image();
-    image.onload = function () {
-      canvas.width = image.width;
-      canvas.height = image.height;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(image, 0, 0);
-      selectedImage = image;
-    };
-    image.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
+  canvas.width = image.width + borderWidth * 2;
+  canvas.height = image.height + borderWidth * 2;
+
+  ctx.fillStyle = borderColor;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(image, borderWidth, borderWidth);
 }
 
 function addWatermark() {
-  if (!selectedImage) return;
-  const text = document.getElementById('textInput').value;
-  const font = document.getElementById('fontSelect').value;
-  const position = document.getElementById('position').value;
-  const color = document.getElementById('colorPicker').value;
-  const opacity = parseFloat(document.getElementById('opacitySlider').value);
+  const text = document.getElementById("textInput").value;
+  const position = document.getElementById("position").value;
+  const font = document.getElementById("fontSelect").value;
+  const color = document.getElementById("colorPicker").value;
+  const opacity = parseFloat(document.getElementById("opacitySlider").value);
 
   ctx.globalAlpha = opacity;
-  ctx.font = '40px ' + font;
   ctx.fillStyle = color;
-  ctx.textAlign = 'center';
+  ctx.font = `24px ${font}`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
 
-  let x = canvas.width / 2;
-  let y = canvas.height / 2;
+  let x, y;
 
   switch (position) {
-    case 'top-left':
-      x = 50; y = 50; break;
-    case 'top-right':
-      x = canvas.width - 50; y = 50; break;
-    case 'bottom-left':
-      x = 50; y = canvas.height - 50; break;
-    case 'bottom-right':
-      x = canvas.width - 50; y = canvas.height - 50; break;
+    case "top-left":
+      x = 50;
+      y = 50;
+      break;
+    case "top-right":
+      x = canvas.width - 50;
+      y = 50;
+      break;
+    case "center":
+      x = canvas.width / 2;
+      y = canvas.height / 2;
+      break;
+    case "bottom-left":
+      x = 50;
+      y = canvas.height - 50;
+      break;
+    case "bottom-right":
+      x = canvas.width - 50;
+      y = canvas.height - 50;
+      break;
   }
 
   ctx.fillText(text, x, y);
@@ -68,9 +68,8 @@ function addWatermark() {
 }
 
 function downloadImage() {
-  if (!selectedImage) return;
-  const link = document.createElement('a');
-  link.download = 'watermarked-image.png';
+  const link = document.createElement("a");
+  link.download = "watermarked-image.png";
   link.href = canvas.toDataURL();
   link.click();
 }
