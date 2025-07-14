@@ -160,3 +160,35 @@ button:hover {
   color: #666;
   margin-top: 0.3rem;
 }
+
+.gallery.list-view {
+  display: block;
+}
+
+.gallery.list-view .image-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.gallery.list-view img {
+  max-width: 150px;
+  height: auto;
+}
+
+.toolbar {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+#toggleViewBtn {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #009688;
+  color: white;
+  border: none;
+}

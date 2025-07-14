@@ -296,3 +296,9 @@ function createBox(item) {
   box.appendChild(delBtn);
   gallery.appendChild(box);
 }
+
+
+const toggleViewBtn = document.getElementById("toggleViewBtn");
+toggleViewBtn.addEventListener("click", () => {
+  gallery.classList.toggle("list-view");
+});
