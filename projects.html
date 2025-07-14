@@ -1,31 +1,39 @@
+body {
+  font-family: "Shabnam", sans-serif;
+  direction: rtl;
+  padding: 2rem;
+  background: #fcfcfc;
+  color: #222;
+}
 
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-  <meta charset="UTF-8">
-  <title>پروژه‌های سایت</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="topbar">
-    <h1>پروژه‌های سایت</h1>
-  </header>
-  <main class="cards-container">
-    <div class="card">
-      <h2>ابزار نستعلیق</h2>
-      <p>تبدیل متن فارسی به تصویر نستعلیق با انواع فونت‌های هنری.</p>
-      <a href="text-art.html" class="btn">رفتن به ابزار</a>
-    </div>
-    <div class="card">
-      <h2>طراحی واترمارک</h2>
-      <p>افزودن متن دلخواه با فونت، رنگ، شفافیت و موقعیت دلخواه روی تصاویر.</p>
-      <a href="editor.html" class="btn">رفتن به ابزار</a>
-    </div>
-    <div class="card">
-      <h2>گوشه دل</h2>
-      <p>مجموعه‌ای از نوشته‌های ادبی و دل‌نوشته‌های درونی با طراحی خاص.</p>
-      <a href="gooshe-del.html" class="btn">مطالعه دل‌نوشته‌ها</a>
-    </div>
-  </main>
-</body>
-</html>
+/* ==== 🔧 استایل ابزار واترمارک تصویری – افزوده شده در مرحله معرفی ابزار ==== */
+.tool-box {
+  background: #f8f8f8;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: right;
+}
+
+.tool-box h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.tool-box p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.tool-button {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #333;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* ==== پایان استایل ابزار واترمارک ==== */
