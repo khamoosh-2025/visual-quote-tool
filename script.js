@@ -2,6 +2,7 @@ let canvas = document.getElementById("imageCanvas");
 let ctx = canvas.getContext("2d");
 let uploadedImage = null;
 
+// نمایش تصویر بارگذاری شده
 document.getElementById("imageLoader").addEventListener("change", function (e) {
   let file = e.target.files[0];
   let reader = new FileReader();
@@ -11,8 +12,8 @@ document.getElementById("imageLoader").addEventListener("change", function (e) {
     img.onload = function () {
       canvas.width = img.width;
       canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
       uploadedImage = img;
+      updatePreview();
     };
     img.src = event.target.result;
   };
@@ -20,14 +21,15 @@ document.getElementById("imageLoader").addEventListener("change", function (e) {
   reader.readAsDataURL(file);
 });
 
-function downloadImage() {
+// توابع برای بروزرسانی پیش‌نمایش
+function updatePreview() {
   if (!uploadedImage) return;
 
   let text = document.getElementById("textInput").value;
-  let font = document.getElementById("fontSelect").value;
   let position = document.getElementById("position").value;
+  let font = document.getElementById("fontSelect").value;
   let color = document.getElementById("colorPicker").value;
-  let opacity = document.getElementById("opacitySlider").value;
+  let opacity = parseFloat(document.getElementById("opacitySlider").value);
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(uploadedImage, 0, 0);
@@ -36,23 +38,53 @@ function downloadImage() {
   ctx.fillStyle = hexToRGBA(color, opacity);
   ctx.textAlign = "center";
 
-  let x = canvas.width / 2;
-  let y = canvas.height - 60;
-
+  let x, y;
   switch (position) {
-    case "top-left": x = 60; y = 60; break;
-    case "top-right": x = canvas.width - 60; y = 60; break;
-    case "bottom-left": x = 60; y = canvas.height - 60; break;
-    case "bottom-right": x = canvas.width - 60; y = canvas.height - 60; break;
-    case "center": x = canvas.width / 2; y = canvas.height / 2; break;
+    case "top-left":
+      x = 100;
+      y = 60;
+      ctx.textAlign = "left";
+      break;
+    case "top-right":
+      x = canvas.width - 100;
+      y = 60;
+      ctx.textAlign = "right";
+      break;
+    case "center":
+      x = canvas.width / 2;
+      y = canvas.height / 2;
+      break;
+    case "bottom-left":
+      x = 100;
+      y = canvas.height - 60;
+      ctx.textAlign = "left";
+      break;
+    case "bottom-right":
+      x = canvas.width - 100;
+      y = canvas.height - 60;
+      ctx.textAlign = "right";
+      break;
   }
 
   ctx.fillText(text, x, y);
 }
 
 function hexToRGBA(hex, alpha) {
-  let r = parseInt(hex.slice(1, 3), 16);
-  let g = parseInt(hex.slice(3, 5), 16);
-  let b = parseInt(hex.slice(5, 7), 16);
+  let r = parseInt(hex.substr(1, 2), 16);
+  let g = parseInt(hex.substr(3, 2), 16);
+  let b = parseInt(hex.substr(5, 2), 16);
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+// رویدادهای همزمان برای پیش‌نمایش
+["textInput", "position", "fontSelect", "colorPicker", "opacitySlider"].forEach(id => {
+  document.getElementById(id).addEventListener("input", updatePreview);
+});
+
+// دانلود تصویر نهایی
+function downloadImage() {
+  let link = document.createElement("a");
+  link.download = "watermarked-image.png";
+  link.href = canvas.toDataURL();
+  link.click();
 }
