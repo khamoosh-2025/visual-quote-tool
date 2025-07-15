@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>جزئیات تصویر</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>نمایش تصویر</h1>
+    <a href="gallery-upload.html">بازگشت به گالری</a>
+  </header>
+
+  <main>
+    <img id="displayedImage" src="" alt="تصویر انتخاب‌شده">
+    <p id="caption">...</p>
+  </main>
+
+  <script>
+    // بازیابی آدرس تصویر از پارامتر URL
+    const params = new URLSearchParams(window.location.search);
+    const imgSrc = params.get("src");
+    const caption = params.get("caption");
+
+    if (imgSrc) {
+      document.getElementById("displayedImage").src = decodeURIComponent(imgSrc);
+    }
+
+    if (caption) {
+      document.getElementById("caption").textContent = decodeURIComponent(caption);
+    }
+  </script>
+</body>
+</html>
