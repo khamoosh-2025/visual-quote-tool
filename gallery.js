@@ -1,10 +1,12 @@
-function openImage(el) {
-  const popup = document.getElementById("popup");
-  const popupImg = document.getElementById("popupImg");
-  popupImg.src = el.src;
-  popup.style.display = "flex";
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const galleryContainer = document.getElementById("gallery");
 
-function closeImage() {
-  document.getElementById("popup").style.display = "none";
-}
+  const imageCount = 6; // تعداد تصاویر آزمایشی
+
+  for (let i = 1; i <= imageCount; i++) {
+    const img = document.createElement("img");
+    img.src = `gallery/image${i}.jpg`;
+    img.alt = `تصویر ${i}`;
+    galleryContainer.appendChild(img);
+  }
+});
