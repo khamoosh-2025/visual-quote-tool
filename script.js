@@ -1,35 +1,14 @@
-const canvas = document.getElementById('signature-pad');
-const ctx = canvas.getContext('2d');
-let drawing = false;
 
-canvas.addEventListener('mousedown', (e) => {
-  drawing = true;
-  ctx.beginPath();
-  ctx.moveTo(e.offsetX, e.offsetY);
-});
+// کمنت چنج: افزودن جستجوگر داینامیک برای مقالات
+function searchArticles() {
+  const input = document.getElementById('searchInput');
+  const filter = input.value.toLowerCase();
+  const ul = document.getElementById("articleList");
+  const li = ul.getElementsByTagName('li');
 
-canvas.addEventListener('mousemove', (e) => {
-  if (drawing) {
-    ctx.lineTo(e.offsetX, e.offsetY);
-    ctx.stroke();
+  for (let i = 0; i < li.length; i++) {
+    let a = li[i].getElementsByTagName("a")[0];
+    let txtValue = a.textContent || a.innerText;
+    li[i].style.display = txtValue.toLowerCase().includes(filter) ? "" : "none";
   }
-});
-
-canvas.addEventListener('mouseup', () => {
-  drawing = false;
-});
-
-canvas.addEventListener('mouseout', () => {
-  drawing = false;
-});
-
-function clearPad() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
-
-function downloadSignature() {
-  const link = document.createElement('a');
-  link.download = 'signature.png';
-  link.href = canvas.toDataURL();
-  link.click();
 }
