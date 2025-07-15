@@ -1,24 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
   <title>گالری تصاویر</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
 </head>
 <body>
   <h1>گالری تصاویر</h1>
+  <input type="file" id="imageUploader" accept="image/*">
+  <div id="gallery"></div>
 
-  <!-- کامنت چنج: افزودن بخش آپلود تصویر -->
-  <section class="upload-section">
-    <h2>افزودن تصویر به گالری</h2>
-    <input type="file" id="uploadInput" accept="image/*" multiple>
-  </section>
+  <div id="lightbox" class="hidden">
+    <span id="closeBtn">&times;</span>
+    <img id="lightboxImg" src="" alt="نمایش تصویر">
+  </div>
 
-  <!-- کامنت چنج: جایگزینی گالری استاتیک با گالری پویا -->
-  <section id="gallery" class="gallery"></section>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

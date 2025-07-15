@@ -1,21 +1,29 @@
-// کامنت چنج: افزودن عملکرد آپلود و نمایش تصویر در گالری
-document.getElementById('uploadInput').addEventListener('change', function (event) {
+
+document.getElementById('imageUploader').addEventListener('change', function(event) {
   const files = event.target.files;
   const gallery = document.getElementById('gallery');
-
-  Array.from(files).forEach(file => {
+  for (let file of files) {
     const reader = new FileReader();
-    reader.onload = function (e) {
-      const link = document.createElement('a');
-      link.href = e.target.result;
-      link.setAttribute('data-lightbox', 'gallery');
-
+    reader.onload = function(e) {
       const img = document.createElement('img');
       img.src = e.target.result;
-
-      link.appendChild(img);
-      gallery.appendChild(link);
+      img.alt = 'uploaded image';
+      img.addEventListener('click', function() {
+        showLightbox(e.target.result);
+      });
+      gallery.appendChild(img);
     };
     reader.readAsDataURL(file);
-  });
+  }
+});
+
+function showLightbox(src) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  lightboxImg.src = src;
+  lightbox.classList.remove('hidden');
+}
+
+document.getElementById('closeBtn').addEventListener('click', function() {
+  document.getElementById('lightbox').classList.add('hidden');
 });
