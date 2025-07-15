@@ -3,20 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گالری تصاویر</title>
+    <title>گالری با واترمارک</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>گالری تصاویر</h1>
-    <div class="gallery">
-        <img src="img1.jpg" alt="تصویر اول" onclick="openPopup(this)">
-        <img src="img2.jpg" alt="تصویر دوم" onclick="openPopup(this)">
-        <img src="img3.jpg" alt="تصویر سوم" onclick="openPopup(this)">
+    <h2>گالری تصاویر با واترمارک</h2>
+
+    <div class="controls">
+        <input type="text" id="watermarkText" placeholder="متن واترمارک (مثلاً: ندای دل)">
+        <select id="position">
+            <option value="bottom-right">پایین راست</option>
+            <option value="bottom-left">پایین چپ</option>
+            <option value="top-right">بالا راست</option>
+            <option value="top-left">بالا چپ</option>
+        </select>
+        <button onclick="applyWatermarks()">اعمال واترمارک</button>
     </div>
 
-    <div id="popup" class="popup" onclick="closePopup()">
-        <span id="caption"></span>
-        <img id="popup-img" src="">
+    <div class="gallery">
+        <div class="image-container">
+            <img src="img1.jpg" class="wm-image">
+            <div class="watermark"></div>
+        </div>
+        <div class="image-container">
+            <img src="img2.jpg" class="wm-image">
+            <div class="watermark"></div>
+        </div>
+        <div class="image-container">
+            <img src="img3.jpg" class="wm-image">
+            <div class="watermark"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>

@@ -1,55 +1,47 @@
 
 body {
     font-family: 'Tahoma', sans-serif;
-    background-color: #f4f4f4;
+    direction: rtl;
     text-align: center;
     padding: 20px;
-    direction: rtl;
+    background-color: #f9f9f9;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    margin: 5px;
+    padding: 8px;
+    font-size: 16px;
 }
 
 .gallery {
     display: flex;
-    justify-content: center;
-    gap: 15px;
     flex-wrap: wrap;
-}
-
-.gallery img {
-    width: 200px;
-    height: auto;
-    cursor: pointer;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.8);
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 1000;
+    gap: 20px;
 }
 
-.popup img {
-    max-width: 90%;
-    max-height: 80vh;
-    border: 5px solid white;
-    border-radius: 10px;
+.image-container {
+    position: relative;
+    display: inline-block;
 }
 
-.popup span {
+.wm-image {
+    width: 250px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.watermark {
+    position: absolute;
     color: white;
-    margin-top: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0.7;
+    pointer-events: none;
+    padding: 5px;
+    text-shadow: 1px 1px 2px black;
 }
