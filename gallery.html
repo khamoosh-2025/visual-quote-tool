@@ -1,3 +1,5 @@
+
+<!-- فایل HTML با popup image -->
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -7,10 +9,16 @@
 </head>
 <body>
   <h1>گالری تصاویر</h1>
-  <input type="file" id="imageInput">
-  <button onclick="addImage()">افزودن به گالری</button>
-  <div id="gallery" class="gallery"></div>
-  <script src="gallery-data.js"></script>
+  <div class="gallery">
+    <img src="images/sample1.jpg" alt="Sample 1">
+    <img src="images/sample2.jpg" alt="Sample 2">
+  </div>
+
+  <!-- 🟩 popup image container -->
+  <div id="popup" class="popup-container" onclick="closePopup()">
+    <img id="popupImage" class="popup-image" src="" alt="نمایش تصویر">
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
