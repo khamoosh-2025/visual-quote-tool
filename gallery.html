@@ -3,25 +3,18 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>گالری با بزرگ‌نمایی تصویر</title>
+  <title>گالری تصاویر</title>
   <link rel="stylesheet" href="style.css">
-  <script src="lightbox.js" defer></script>
 </head>
 <body>
-  <header class="topbar">
-    <h1>گالری دل‌نوشته‌ها</h1>
-  </header>
-
-  <main class="gallery">
-    <div class="gallery-item"><img src="images/sample1.jpg" alt="نمونه ۱"></div>
-    <div class="gallery-item"><img src="images/sample2.jpg" alt="نمونه ۲"></div>
-    <div class="gallery-item"><img src="images/sample3.jpg" alt="نمونه ۳"></div>
-    <div class="gallery-item"><img src="images/sample4.jpg" alt="نمونه ۴"></div>
-  </main>
-
-  <div id="lightbox" class="lightbox">
-    <span class="close" onclick="closeLightbox()">×</span>
-    <img id="lightbox-img" src="" alt="">
+  <h1>گالری تصاویر</h1>
+  <div class="gallery">
+    <a href="image.html?src=images/sample1.jpg&title=تصویر اول">
+      <img src="images/sample1.jpg" alt="تصویر اول">
+    </a>
+    <a href="image.html?src=images/sample2.jpg&title=تصویر دوم">
+      <img src="images/sample2.jpg" alt="تصویر دوم">
+    </a>
   </div>
 </body>
 </html>
