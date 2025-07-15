@@ -1,14 +1,11 @@
 
-// کمنت چنج: افزودن جستجوگر داینامیک برای مقالات
-function searchArticles() {
-  const input = document.getElementById('searchInput');
-  const filter = input.value.toLowerCase();
-  const ul = document.getElementById("articleList");
-  const li = ul.getElementsByTagName('li');
-
-  for (let i = 0; i < li.length; i++) {
-    let a = li[i].getElementsByTagName("a")[0];
-    let txtValue = a.textContent || a.innerText;
-    li[i].style.display = txtValue.toLowerCase().includes(filter) ? "" : "none";
-  }
-}
+// comment change: گالری - بارگذاری تصاویر
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.getElementById("gallery");
+  images.forEach(img => {
+    const image = document.createElement("img");
+    image.src = img.src;
+    image.alt = img.alt;
+    container.appendChild(image);
+  });
+});
