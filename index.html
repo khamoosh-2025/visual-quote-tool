@@ -1,44 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>ابزار نگارش تصویری</title>
+  <title>ابزار واترمارک تصویری</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>ابزار نگارش تصویری با فونت فارسی</h1>
+  <div class="card">
+    <h1>ابزار نگارش تصویری با فونت فارسی</h1>
+    <input type="file" id="imageInput">
+    <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea>
+    
+    <label for="position">موقعیت:</label>
+    <select id="position">
+      <option value="top-left">بالا چپ</option>
+      <option value="top-right">بالا راست</option>
+      <option value="center">مرکز</option>
+      <option value="bottom-left">پایین چپ</option>
+      <option value="bottom-right">پایین راست</option>
+    </select>
 
-  <input type="file" id="imageInput">
-  <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea>
+    <label for="fontSelect">فونت:</label>
+    <select id="fontSelect">
+      <option value="Bita">بیتا</option>
+      <option value="Tabassom">تبسم</option>
+      <option value="TahrirBadkhat">تحریر بدخط</option>
+      <option value="Zahabi">ذهبی</option>
+      <option value="Nastaligh">نستعلیق</option>
+      <option value="Nastaligh-Shekaste">نستعلیق شکسته</option>
+      <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
+    </select>
 
-  <label for="position">موقعیت:</label>
-  <select id="position">
-    <option value="top-left">بالا چپ</option>
-    <option value="top-right">بالا راست</option>
-    <option value="center">مرکز</option>
-    <option value="bottom-left">پایین چپ</option>
-    <option value="bottom-right">پایین راست</option>
-  </select>
+    <input type="color" id="colorPicker" value="#ffffff">
+    <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5">
 
-  <label for="fontSelect">فونت:</label>
-  <select id="fontSelect">
-    <option value="Bita">بیتا</option>
-    <option value="Tabassom">تبسم</option>
-    <option value="TahrirBadkhat">تحریر بدخط</option>
-    <option value="Zahabi">ذهبی</option>
-    <option value="Nastaligh">نستعلیق</option>
-    <option value="Nastaligh-Shekaste">نستعلیق شکسته</option>
-    <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
-  </select>
+    <div class="buttons">
+      <button onclick="addWatermark()">افزودن واترمارک</button>
+      <button onclick="downloadImage()">دانلود تصویر</button>
+    </div>
 
-  <input type="color" id="colorPicker" value="#ffffff">
-  <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5">
-
-  <button onclick="addWatermark()">افزودن واترمارک</button>
-  <button onclick="downloadImage()">دانلود تصویر</button>
-
-  <canvas id="canvas"></canvas>
-
+    <canvas id="canvas"></canvas>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
