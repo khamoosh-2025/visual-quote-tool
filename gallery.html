@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -6,21 +7,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>گالری تصاویر</h1>
-    <button id="toggleMode">🌙 / ☀️</button>
-  </header>
+  <h1>گالری تصاویر</h1>
+  <div class="gallery">
+    <img src="img1.jpg" alt="تصویر ۱" class="thumbnail" onclick="openLightbox(this.src)">
+    <img src="img2.jpg" alt="تصویر ۲" class="thumbnail" onclick="openLightbox(this.src)">
+    <img src="img3.jpg" alt="تصویر ۳" class="thumbnail" onclick="openLightbox(this.src)">
+  </div>
 
-  <main class="gallery-grid">
-    <div class="gallery-item">
-      <img src="gallery/sample1.jpg" alt="تصویر ۱">
-      <a href="gallery/sample1.jpg" download>دانلود</a>
-    </div>
-    <div class="gallery-item">
-      <img src="gallery/sample2.jpg" alt="تصویر ۲">
-      <a href="gallery/sample2.jpg" download>دانلود</a>
-    </div>
-  </main>
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+  </div>
 
   <script src="script.js"></script>
 </body>
