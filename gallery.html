@@ -1,24 +1,24 @@
-<!-- gallery.html -->
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
   <title>گالری تصاویر</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
 </head>
 <body>
   <h1>گالری تصاویر</h1>
-  <div class="gallery">
-    <img src="img1.jpg" alt="تصویر ۱" onclick="openLightbox(this.src)">
-    <img src="img2.jpg" alt="تصویر ۲" onclick="openLightbox(this.src)">
-    <img src="img3.jpg" alt="تصویر ۳" onclick="openLightbox(this.src)">
-  </div>
 
-  <div id="lightbox" onclick="closeLightbox()">
-    <span class="close">&times;</span>
-    <img id="lightbox-img" src="">
-  </div>
+  <!-- کامنت چنج: افزودن بخش آپلود تصویر -->
+  <section class="upload-section">
+    <h2>افزودن تصویر به گالری</h2>
+    <input type="file" id="uploadInput" accept="image/*" multiple>
+  </section>
 
+  <!-- کامنت چنج: جایگزینی گالری استاتیک با گالری پویا -->
+  <section id="gallery" class="gallery"></section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

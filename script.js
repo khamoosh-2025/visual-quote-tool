@@ -1,11 +1,21 @@
-// script.js
-function openLightbox(src) {
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  lightbox.style.display = 'block';
-  lightboxImg.src = src;
-}
+// کامنت چنج: افزودن عملکرد آپلود و نمایش تصویر در گالری
+document.getElementById('uploadInput').addEventListener('change', function (event) {
+  const files = event.target.files;
+  const gallery = document.getElementById('gallery');
 
-function closeLightbox() {
-  document.getElementById('lightbox').style.display = 'none';
-}
+  Array.from(files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const link = document.createElement('a');
+      link.href = e.target.result;
+      link.setAttribute('data-lightbox', 'gallery');
+
+      const img = document.createElement('img');
+      img.src = e.target.result;
+
+      link.appendChild(img);
+      gallery.appendChild(link);
+    };
+    reader.readAsDataURL(file);
+  });
+});
