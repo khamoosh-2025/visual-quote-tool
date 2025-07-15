@@ -6,13 +6,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>گالری تصاویر</h1>
-  <input type="text" id="searchInput" placeholder="جستجوی تصویر..." oninput="searchImages()">
-  <div id="gallery">
-    <img src="images/sample1.jpg" alt="نمونه 1">
-    <img src="images/sample2.jpg" alt="نمونه 2">
-    <img src="images/sample3.jpg" alt="نمونه 3">
-  </div>
+  <header>
+    <h1>گالری تصاویر</h1>
+    <button id="toggleMode">🌙 / ☀️</button>
+  </header>
+
+  <main class="gallery-grid">
+    <div class="gallery-item">
+      <img src="gallery/sample1.jpg" alt="تصویر ۱">
+      <a href="gallery/sample1.jpg" download>دانلود</a>
+    </div>
+    <div class="gallery-item">
+      <img src="gallery/sample2.jpg" alt="تصویر ۲">
+      <a href="gallery/sample2.jpg" download>دانلود</a>
+    </div>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>

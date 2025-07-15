@@ -1,24 +1,20 @@
 
-body {
-  font-family: Tahoma, sans-serif;
-  background-color: #f9f9f9;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
   padding: 20px;
-  direction: rtl;
 }
 
-form input, form textarea {
-  display: block;
-  margin-bottom: 10px;
+.gallery-item {
+  border: 1px solid var(--border-color);
   padding: 8px;
-  width: 300px;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  text-align: center;
 }
 
-.success-message {
-  background-color: #d4edda;
-  color: #155724;
-  padding: 10px 20px;
-  border: 1px solid #c3e6cb;
-  border-radius: 8px;
-  margin-top: 15px;
-  text-align: center;
+.gallery-item img {
+  width: 100%;
+  border-radius: 6px;
 }
