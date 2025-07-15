@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>میز خلاقیت خاموش</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Shabnam', Tahoma, sans-serif;
+      background: #fdfdfd;
+      direction: rtl;
+      color: #222;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .tool-box {
+      background: #fff;
+      padding: 20px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    }
+    .tool-box h2 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #444;
+    }
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      font-size: 15px;
+      margin-top: 10px;
+      font-family: inherit;
+    }
+    .buttons {
+      margin-top: 15px;
+    }
+    .buttons button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 14px;
+      border: none;
+      background: #444;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .buttons button:hover {
+      background: #666;
+    }
+    .preview {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fafafa;
+      border: 1px dashed #ccc;
+      min-height: 80px;
+      font-size: 18px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🖋 میز خلاقیت خاموش</h1>
+    <p>نوشتن، تصویر، واژه، هنر — همه در یک‌جا</p>
+  </header>
+
+  <section>
+    <div class="tool-box">
+      <h2>✍️ نوشتن با فونت‌های هنری</h2>
+      <input type="text" id="userText" placeholder="متن دل‌نوشته‌ات را اینجا وارد کن...">
+      <div class="buttons">
+        <button onclick="setFont('Shabnam')">شبنم</button>
+        <button onclick="setFont('IranNastaliq')">نستعلیق</button>
+        <button onclick="setFont('Tabassom')">تبسم</button>
+      </div>
+      <div class="preview" id="previewBox">پیش‌نمایش متن...</div>
+    </div>
+
+    <div class="tool-box">
+      <h2>🖼️ افزودن متن واترمارک</h2>
+      <input type="text" id="watermarkText" placeholder="واترمارک دلخواه را وارد کن...">
+      <div class="buttons">
+        <button onclick="applyWatermark()">اعمال روی تصویر</button>
+      </div>
+      <div class="preview" id="watermarkResult">...</div>
+    </div>
+
+    <div class="tool-box">
+      <h2>📦 ذخیره یا دریافت خروجی</h2>
+      <div class="buttons">
+        <button onclick="window.print()">چاپ یا ذخیره PDF</button>
+        <button onclick="downloadText()">دریافت متن به‌صورت فایل</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function setFont(font) {
+      const text = document.getElementById("userText").value;
+      const preview = document.getElementById("previewBox");
+      preview.style.fontFamily = font;
+      preview.textContent = text;
+    }
+
+    function applyWatermark() {
+      const wm = document.getElementById("watermarkText").value;
+      document.getElementById("watermarkResult").innerText = `✔️ واترمارک شما: ${wm}`;
+    }
+
+    function downloadText() {
+      const text = document.getElementById("userText").value;
+      const blob = new Blob([text], { type: "text/plain" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "khamoosh_text.txt";
+      link.click();
+    }
+  </script>
+</body>
+</html>
