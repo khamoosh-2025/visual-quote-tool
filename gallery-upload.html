@@ -2,16 +2,19 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>آپلود تصویر</title>
+  <title>گالری تصاویر</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>گالری آپلود تصویر</h1>
-
+  <h1>گالری تصاویر آپلود شده</h1>
   <input type="file" id="imageInput" accept="image/*">
-  <button id="clearBtn" onclick="clearImage()">پاک کردن تصویر</button>
-  <br><br>
-  <img id="preview" src="" alt="پیش‌نمایش تصویر" style="max-width: 100%; display: none;">
+  <button onclick="uploadImage()">آپلود تصویر</button>
+  <div id="gallery"></div>
+
+  <!-- پیش‌نمایش -->
+  <div id="previewModal" class="modal" onclick="closePreview()">
+    <img id="previewImage" class="modal-content">
+  </div>
 
   <script src="script.js"></script>
 </body>

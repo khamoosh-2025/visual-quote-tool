@@ -1,20 +1,27 @@
-document.getElementById('imageInput').addEventListener('change', function(event) {
-  const file = event.target.files[0];
-  const preview = document.getElementById('preview');
+function uploadImage() {
+  const input = document.getElementById('imageInput');
+  const gallery = document.getElementById('gallery');
+  const file = input.files[0];
+  if (!file) return;
 
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      preview.src = e.target.result;
-      preview.style.display = 'block';
-    };
-    reader.readAsDataURL(file);
-  }
-});
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = document.createElement('img');
+    img.src = e.target.result;
+    img.alt = "تصویر آپلود شده";
+    img.addEventListener('click', () => previewImage(img));
+    gallery.appendChild(img);
+  };
+  reader.readAsDataURL(file);
+}
 
-function clearImage() {
-  const preview = document.getElementById('preview');
-  preview.src = '';
-  preview.style.display = 'none';
-  document.getElementById('imageInput').value = '';
+function previewImage(imgElement) {
+  const modal = document.getElementById('previewModal');
+  const preview = document.getElementById('previewImage');
+  preview.src = imgElement.src;
+  modal.style.display = 'flex';
+}
+
+function closePreview() {
+  document.getElementById('previewModal').style.display = 'none';
 }
