@@ -1,22 +1,36 @@
-/* style.css */
-/* استایل ساده برای نمایش گالری */
-body {
-  font-family: sans-serif;
-  direction: rtl;
-  padding: 20px;
-  background-color: #f9f9f9;
-}
 
+/* گالری تصاویر */
 .gallery {
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
-  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .gallery img {
-  max-width: 200px;
-  height: auto;
-  border: 2px solid #ccc;
+  width: 150px;
+  cursor: pointer;
   border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* 🎯 Comment Change: popup-style */
+.popup-container {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #fff;
 }
