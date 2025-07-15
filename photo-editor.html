@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>تبدیل عکس به نقاشی</title>
+  <link rel="stylesheet" href="photo-editor.css">
+</head>
+<body>
+  <h1>ابزار تبدیل عکس به نقاشی</h1>
+  <input type="file" id="imageInput">
+  <select id="effectSelect">
+    <option value="pencil">مداد</option>
+    <option value="oil">نقاشی روغنی</option>
+    <option value="cartoon">کارتونی</option>
+    <option value="blur">محو و کلاسیک</option>
+  </select>
+  <button onclick="applyEffect()">اعمال افکت</button>
+  <button onclick="downloadImage()">دانلود</button>
+  <canvas id="canvas"></canvas>
+  <script src="photo-editor.js"></script>
+</body>
+</html>
