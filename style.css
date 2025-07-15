@@ -1,45 +1,54 @@
-
-/* === تغییرات مربوط به portfolio.html === */
-.portfolio-title {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 2rem;
-  color: #333;
+/* پایه رنگ‌ها */
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --border-color: #ddd;
 }
-.portfolio-container {
+
+/* استایل پایه */
+body {
+  font-family: sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* CHANGES START: استایل کارت‌های دسته‌بندی */
+.categories {
+  padding: 2rem;
+  background-color: var(--bg-color);
+  text-align: center;
+}
+
+.categories h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  padding: 2rem;
 }
-.card {
-  width: 280px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  text-align: center;
-  padding: 1rem;
-}
-.card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-.card h2 {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-.card p {
-  font-size: 0.9rem;
-  color: #555;
-}
-.card .btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background: #444;
-  color: white;
-  border-radius: 5px;
+
+.category-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  width: 250px;
   text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+/* CHANGES END */
