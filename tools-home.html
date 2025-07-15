@@ -3,28 +3,41 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>خانه ابزارها | گم‌نام خاموش فراری</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="tools-home-style.css">
+  <title>خانه ابزارها</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
   <header>
-    <h1>خانه ابزارها</h1>
-    <p>دسترسی سریع به تمام ابزارها و صفحات سایت</p>
+    <h1>خانه ابزارهای گرافیکی</h1>
+    <button onclick="toggleMode()">حالت شب/روز</button>
   </header>
 
-  <main>
-    <div class="tool-list">
-      <a href="text-art.html" class="tool-card">🖋️ هنر متن نستعلیق</a>
-      <a href="watermark-tool.html" class="tool-card">💧 ابزار واترمارک</a>
-      <a href="gallery.html" class="tool-card">🖼️ گالری تصاویر</a>
-      <a href="about.html" class="tool-card">👤 درباره من</a>
-      <a href="contact.html" class="tool-card">✉️ تماس با من</a>
+  <main class="tools-container">
+    <div class="tool-card">
+      <h2>✍️ ابزار نستعلیق</h2>
+      <p>طراحی متن با فونت نستعلیق</p>
+      <a href="text-art.html">ورود به ابزار</a>
+    </div>
+
+    <div class="tool-card">
+      <h2>🖼️ واترمارک تصویر</h2>
+      <p>افزودن واترمارک روی عکس</p>
+      <a href="watermark-tool.html">ورود به ابزار</a>
+    </div>
+
+    <div class="tool-card">
+      <h2>🖋️ آزمایش فونت فارسی</h2>
+      <p>دیدن نمونه فونت‌های فارسی</p>
+      <a href="font-sample.html">ورود به ابزار</a>
+    </div>
+
+    <div class="tool-card">
+      <h2>📷 گالری تصاویر</h2>
+      <p>نمایش آثار تصویری سایت</p>
+      <a href="gallery.html">مشاهده گالری</a>
     </div>
   </main>
 
-  <footer>
-    <p>ساخته‌شده با واژه‌ها و تصویر توسط «گم‌نام خاموش فراری»</p>
-  </footer>
+  <script src="mode-toggle.js"></script>
 </body>
 </html>
