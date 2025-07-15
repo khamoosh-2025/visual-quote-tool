@@ -1,33 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>گالری تصاویر</title>
-  <link rel="stylesheet" href="gallery-style.css">
+  <title>گالری آثار</title>
+  <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
-  <h1 class="title">گالری تصاویر</h1>
+  <h1>گالری آثار طراحی‌شده</h1>
   <div class="gallery">
-    <div class="item">
-      <img src="images/sample1.jpg" alt="نمونه ۱" onclick="openLightbox(this)">
-      <p>نمونه ۱</p>
-    </div>
-    <div class="item">
-      <img src="images/sample2.jpg" alt="نمونه ۲" onclick="openLightbox(this)">
-      <p>نمونه ۲</p>
-    </div>
-    <div class="item">
-      <img src="images/sample3.jpg" alt="نمونه ۳" onclick="openLightbox(this)">
-      <p>نمونه ۳</p>
-    </div>
+    <img src="samples/sample1.jpg" alt="اثر اول" onclick="openImage(this)">
+    <img src="samples/sample2.jpg" alt="اثر دوم" onclick="openImage(this)">
+    <img src="samples/sample3.jpg" alt="اثر سوم" onclick="openImage(this)">
   </div>
 
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="">
-    <p id="lightbox-caption"></p>
+  <div id="popup" class="popup" onclick="closeImage()">
+    <img id="popupImg" src="" alt="تصویر بزرگ">
   </div>
 
-  <script src="lightbox.js"></script>
+  <script src="gallery.js"></script>
 </body>
 </html>
