@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>تنظیمات ظاهری</title>
+  <link rel="stylesheet" href="appearance-style.css">
+</head>
+<body>
+  <h1>تنظیمات ظاهری</h1>
+
+  <label for="fontSelect">انتخاب فونت:</label>
+  <select id="fontSelect">
+    <option value="Shabnam">شبنم</option>
+    <option value="Bita">بیتا</option>
+    <option value="Tabassom">تبسم</option>
+    <option value="TahrirBadkhat">تحریر بدخط</option>
+    <option value="Zahabi">ذهبی</option>
+    <option value="Nastaligh">نستعلیق</option>
+  </select>
+
+  <br><br>
+
+  <label for="modeToggle">حالت نمایش:</label>
+  <select id="modeToggle">
+    <option value="light">روشن</option>
+    <option value="dark">تاریک</option>
+  </select>
+
+  <br><br>
+
+  <button onclick="saveSettings()">ذخیره تنظیمات</button>
+
+  <script src="appearance-script.js"></script>
+</body>
+</html>
