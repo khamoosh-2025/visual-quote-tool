@@ -1,23 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>گالری تصاویر</title>
-  <link rel="stylesheet" href="style.css">
+  <title>نمایش گالری تصاویر</title>
+  <link rel="stylesheet" href="gallery-style.css">
 </head>
 <body>
   <h1>گالری تصاویر</h1>
-  <div class="gallery">
-    <img src="images/sample1.jpg" alt="Sample Image 1" onclick="openFullscreen(this)">
-    <img src="images/sample2.jpg" alt="Sample Image 2" onclick="openFullscreen(this)">
-    <img src="images/sample3.jpg" alt="Sample Image 3" onclick="openFullscreen(this)">
+  <div class="gallery-container" id="gallery"></div>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="نمایش تصویر بزرگ">
   </div>
 
-  <div id="fullscreenContainer" onclick="closeFullscreen()">
-    <img id="fullscreenImage" src="" alt="Full View">
-  </div>
-
-  <script src="script.js"></script>
+  <script src="gallery-script.js"></script>
 </body>
 </html>
