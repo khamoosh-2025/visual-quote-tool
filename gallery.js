@@ -1,12 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const galleryContainer = document.getElementById("gallery");
-
-  const imageCount = 6; // تعداد تصاویر آزمایشی
-
-  for (let i = 1; i <= imageCount; i++) {
-    const img = document.createElement("img");
-    img.src = `gallery/image${i}.jpg`;
-    img.alt = `تصویر ${i}`;
-    galleryContainer.appendChild(img);
+function addCustomImage() {
+  const input = document.getElementById('uploadInput');
+  const file = input.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      document.getElementById('gallery').appendChild(img);
+    };
+    reader.readAsDataURL(file);
   }
-});
+}

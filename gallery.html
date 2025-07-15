@@ -6,8 +6,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>گالری تصاویر</h1>
-  <div id="gallery"></div>
+  <h1>گالری تصاویر من</h1>
+
+  <div class="upload-container">
+    <input type="file" id="uploadInput" accept="image/*">
+    <button onclick="addCustomImage()">افزودن به گالری</button>
+  </div>
+
+  <div id="gallery">
+    <!-- تصاویر گالری در اینجا قرار می‌گیرند -->
+  </div>
+
   <script src="gallery.js"></script>
 </body>
 </html>
