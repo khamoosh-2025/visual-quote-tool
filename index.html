@@ -1,47 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <title>ابزار واترمارک تصویری</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گالری تصاویر</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card">
-    <h1>ابزار نگارش تصویری با فونت فارسی</h1>
-    <input type="file" id="imageInput">
-    <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea>
-    
-    <label for="position">موقعیت:</label>
-    <select id="position">
-      <option value="top-left">بالا چپ</option>
-      <option value="top-right">بالا راست</option>
-      <option value="center">مرکز</option>
-      <option value="bottom-left">پایین چپ</option>
-      <option value="bottom-right">پایین راست</option>
-    </select>
-
-    <label for="fontSelect">فونت:</label>
-    <select id="fontSelect">
-      <option value="Bita">بیتا</option>
-      <option value="Tabassom">تبسم</option>
-      <option value="TahrirBadkhat">تحریر بدخط</option>
-      <option value="Zahabi">ذهبی</option>
-      <option value="Nastaligh">نستعلیق</option>
-      <option value="Nastaligh-Shekaste">نستعلیق شکسته</option>
-      <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
-    </select>
-
-    <input type="color" id="colorPicker" value="#ffffff">
-    <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5">
-
-    <div class="buttons">
-      <button onclick="addWatermark()">افزودن واترمارک</button>
-      <button onclick="downloadImage()">دانلود تصویر</button>
+    <h1>گالری تصاویر</h1>
+    <div class="gallery">
+        <img src="img1.jpg" alt="تصویر اول" onclick="openPopup(this)">
+        <img src="img2.jpg" alt="تصویر دوم" onclick="openPopup(this)">
+        <img src="img3.jpg" alt="تصویر سوم" onclick="openPopup(this)">
     </div>
 
-    <canvas id="canvas"></canvas>
-  </div>
-  <script src="script.js"></script>
+    <div id="popup" class="popup" onclick="closePopup()">
+        <span id="caption"></span>
+        <img id="popup-img" src="">
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

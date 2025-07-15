@@ -1,11 +1,13 @@
 
-// comment change: گالری - بارگذاری تصاویر
-document.addEventListener("DOMContentLoaded", function () {
-  const container = document.getElementById("gallery");
-  images.forEach(img => {
-    const image = document.createElement("img");
-    image.src = img.src;
-    image.alt = img.alt;
-    container.appendChild(image);
-  });
-});
+function openPopup(imgElement) {
+    const popup = document.getElementById("popup");
+    const popupImg = document.getElementById("popup-img");
+    const caption = document.getElementById("caption");
+    popup.style.display = "flex";
+    popupImg.src = imgElement.src;
+    caption.innerText = imgElement.alt;
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
