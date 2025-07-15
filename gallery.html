@@ -1,16 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>گالری تصاویر</title>
+  <title>گالری</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1 class="title">گالری تصاویر</h1>
-  <div class="gallery" id="gallery"></div>
-
-  <script src="gallery-data.js"></script>
-  <script src="script.js"></script>
+  <h2>گالری نهایی پاپ‌آپ با واترمارک</h2>
+  <div class="controls">
+    <input type="text" id="watermarkText" placeholder="متن واترمارک">
+    <select id="position">
+      <option value="bottom-right">پایین راست</option>
+      <option value="bottom-left">پایین چپ</option>
+      <option value="top-right">بالا راست</option>
+      <option value="top-left">بالا چپ</option>
+    </select>
+    <button onclick="applyWatermarks()">اعمال واترمارک</button>
+  </div>
+  <div class="gallery">
+    <div class="image-container">
+      <img src="img1.jpg" alt="تصویر اول" onclick="openPopup(this)" class="wm-image">
+      <div class="watermark"></div>
+    </div>
+    <div class="image-container">
+      <img src="img2.jpg" alt="تصویر دوم" onclick="openPopup(this)" class="wm-image">
+      <div class="watermark"></div>
+    </div>
+  </div>
+  <div id="popup" class="popup" onclick="closePopup()">
+    <span id="caption"></span>
+    <img id="popup-img" src="">
+  </div>
+  <script src="gallery.js"></script>
 </body>
 </html>
