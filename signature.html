@@ -2,20 +2,27 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>ابزار امضای دیجیتال</title>
+  <title>ابزار امضا</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>ابزار امضای دیجیتال</h1>
+  <h1>ابزار امضای دست‌نویس</h1>
 
-  <div id="signature-container">
-    <canvas id="signature-pad" width="300" height="200"></canvas>
-    <div class="buttons">
-      <button onclick="clearPad()">پاک‌کردن</button>
-      <button onclick="downloadSignature()">ذخیره امضا</button>
+  <div class="signature-container">
+    <canvas id="signaturePad" width="300" height="200"></canvas>
+
+    <div class="controls">
+      <label>رنگ قلم:</label>
+      <input type="color" id="penColor" value="#000000">
+
+      <label>ضخامت خط:</label>
+      <input type="range" id="penWidth" min="1" max="10" value="2">
+
+      <button onclick="clearSignature()">پاک کردن</button>
+      <button onclick="saveSignature()">ذخیره امضا</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="signature.js"></script>
 </body>
 </html>
