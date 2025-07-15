@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>سازنده کاور مقاله - خاموش</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Shabnam, Tahoma, sans-serif;
+      background: #f0f0f0;
+      direction: rtl;
+      padding: 0;
+      margin: 0;
+    }
+    header {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    input, textarea, select {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+    }
+    canvas {
+      max-width: 100%;
+      border: 1px dashed #ccc;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #007b8a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005f68;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎨 سازنده کاور مقاله</h1>
+    <p>طراحی جلد مقاله با عکس، عنوان، و نوشته</p>
+  </header>
+  
+  <main>
+    <label>📌 عنوان مقاله:</label>
+    <input type="text" id="title" placeholder="مثلاً: کلام پخته">
+
+    <label>✍️ متن مقاله (کوتاه):</label>
+    <textarea id="body" rows="4" placeholder="متن مقاله خود را بنویسید..."></textarea>
+
+    <label>🖼️ انتخاب عکس پس‌زمینه:</label>
+    <input type="file" id="bgImage" accept="image/*">
+
+    <label>🎨 رنگ نوشته:</label>
+    <input type="color" id="textColor" value="#ffffff">
+
+    <button onclick="generateCover()">✅ ساخت کاور</button>
+    <button onclick="downloadCover()">⬇️ ذخیره کاور (PNG)</button>
+
+    <canvas id="coverCanvas" width="800" height="500"></canvas>
+  </main>
+
+  <script>
+    const canvas = document.getElementById("coverCanvas");
+    const ctx = canvas.getContext("2d");
+    let bgImage = null;
+
+    document.getElementById("bgImage").addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (evt) {
+          bgImage = new Image();
+          bgImage.onload = generateCover;
+          bgImage.src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function generateCover() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (bgImage) ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+      const title = document.getElementById("title").value;
+      const body = document.getElementById("body").value;
+      const color = document.getElementById("textColor").value;
+
+      ctx.fillStyle = "rgba(0,0,0,0.5)";
+      ctx.fillRect(0, 350, canvas.width, 150);
+
+      ctx.fillStyle = color;
+      ctx.font = "bold 30px Shabnam";
+      ctx.fillText(title, 20, 390);
+
+      ctx.font = "20px Shabnam";
+      wrapText(body, 20, 430, canvas.width - 40, 28);
+    }
+
+    function wrapText(text, x, y, maxWidth, lineHeight) {
+      const words = text.split(' ');
+      let line = '';
+
+      for (let i = 0; i < words.length; i++) {
+        let testLine = line + words[i] + ' ';
+        let metrics = ctx.measureText(testLine);
+        let testWidth = metrics.width;
+        if (testWidth > maxWidth && i > 0) {
+          ctx.fillText(line, x, y);
+          line = words[i] + ' ';
+          y += lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line, x, y);
+    }
+
+    function downloadCover() {
+      const link = document.createElement('a');
+      link.download = 'article-cover.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+  </script>
+</body>
+</html>
