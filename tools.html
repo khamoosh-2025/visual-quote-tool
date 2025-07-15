@@ -2,45 +2,34 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>ابزار واترمارک تصویری</title>
+  <title>گالری ابزارها</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>ابزار واترمارک تصویری</h1>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="hom.html">خانه</a></li>
+        <li><a href="text-art.html">نستعلیق</a></li>
+        <li><a href="watermark.html">واترمارک</a></li>
+        <li><a href="image-editor.html">ویرایش تصویر</a></li>
+        <li><a href="quote.html">نقل‌قول تصویری</a></li>
+        <li><a href="signature.html">ابزار امضا</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <input type="file" id="imageLoader" name="imageLoader" />
-  <br><br>
-
-  <textarea id="textInput" placeholder="متن واترمارک (مثلاً ندای دل)"></textarea><br>
-
-  <label for="position">موقعیت:</label>
-  <select id="position">
-    <option value="top-left">بالا چپ</option>
-    <option value="top-right">بالا راست</option>
-    <option value="center">مرکز</option>
-    <option value="bottom-left">پایین چپ</option>
-    <option value="bottom-right">پایین راست</option>
-  </select><br><br>
-
-  <label for="fontSelect">فونت:</label>
-  <select id="fontSelect">
-    <option value="Tabassom">تبسم</option>
-    <option value="Bita">بیتا</option>
-    <option value="TahrirBadkhat">تحریر بدخط</option>
-    <option value="Zahabi">ذهبی</option>
-    <option value="Nastaligh">نستعلیق</option>
-    <option value="NastalighShekaste">نستعلیق شکسته</option>
-    <option value="NastalighKeshide">نستعلیق کشیده</option>
-  </select><br><br>
-
-  <label>رنگ: <input type="color" id="colorPicker" value="#ffffff"></label><br><br>
-
-  <label>شفافیت: <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="0.5"></label><br><br>
-
-  <button onclick="downloadImage()">ذخیره تصویر</button>
-
-  <canvas id="imageCanvas"></canvas>
-
-  <script src="script.js"></script>
+  <main>
+    <h1>گالری ابزارها</h1>
+    <div class="tool-gallery">
+      <div class="tool-card">
+        <a href="signature.html">
+          <img src="images/signature-icon.png" alt="ابزار امضا">
+          <h3>ابزار امضا</h3>
+          <p>طراحی امضا دست‌نویس برای استفاده روی عکس‌ها یا سندها</p>
+        </a>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
