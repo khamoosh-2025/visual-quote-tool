@@ -1,3 +1,4 @@
+<!-- gallery.html -->
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -7,12 +8,17 @@
 </head>
 <body>
   <h1>گالری تصاویر</h1>
-  <input type="text" id="searchInput" placeholder="جستجوی تصویر..." oninput="searchImages()">
-  <div id="gallery">
-    <img src="images/sample1.jpg" alt="نمونه 1">
-    <img src="images/sample2.jpg" alt="نمونه 2">
-    <img src="images/sample3.jpg" alt="نمونه 3">
+  <div class="gallery">
+    <img src="img1.jpg" alt="تصویر ۱" onclick="openLightbox(this.src)">
+    <img src="img2.jpg" alt="تصویر ۲" onclick="openLightbox(this.src)">
+    <img src="img3.jpg" alt="تصویر ۳" onclick="openLightbox(this.src)">
   </div>
+
+  <div id="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="">
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,12 +1,11 @@
-function searchImages() {
-  const input = document.getElementById('searchInput').value.toLowerCase();
-  const images = document.querySelectorAll('#gallery img');
-  images.forEach(img => {
-    const altText = img.alt.toLowerCase();
-    if (altText.includes(input)) {
-      img.style.display = 'inline';
-    } else {
-      img.style.display = 'none';
-    }
-  });
+// script.js
+function openLightbox(src) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  lightbox.style.display = 'block';
+  lightboxImg.src = src;
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
 }
