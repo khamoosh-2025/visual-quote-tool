@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>گم‌نام خاموش فراری</title>
+  <title>صفحه اصلی</title>
   <link rel="stylesheet" href="style.css">
-  <script src="mode-toggle.js" defer></script>
 </head>
 <body>
-  <header class="main-header">
-    <h1 class="site-title">گم‌نام خاموش فراری</h1>
-    <p class="site-subtitle">آواز واژه‌ها از خاموشی برمی‌خیزد…</p>
-  </header>
+  <h1>گم‌نام خاموش فراری</h1>
+  <p>آواز واژه‌ها از خاموشی برمی‌خیزد…</p>
 
-  <nav class="main-nav">
-    <ul>
-      <li><a href="gooshe-del.html">گوشه دل</a></li>
-      <li><a href="about.html">درباره من</a></li>
-      <li><a href="contact.html">تماس با من</a></li>
-      <li><a href="text-art.html">ابزار نستعلیق</a></li>
-      <li><a href="gallery.html">گالری تصاویر</a></li>
-    </ul>
-  </nav>
-
-  <footer class="main-footer">
-    <p>تمام حقوق محفوظ است © 2025</p>
-  </footer>
+  <!-- CHANGES START: بخش دسته‌بندی‌های صفحه اصلی -->
+  <section class="categories">
+    <h2>دسته‌بندی‌ها</h2>
+    <div class="card-container">
+      <a href="gooshe-del.html" class="category-card">
+        <h3>دل‌نوشته‌ها</h3>
+        <p>جایی برای بیان احساسات و کلام پخته…</p>
+      </a>
+      <a href="text-art.html" class="category-card">
+        <h3>ابزارها</h3>
+        <p>تبدیل متن به نستعلیق، واترمارک و بیشتر</p>
+      </a>
+      <a href="gallery.html" class="category-card">
+        <h3>گالری</h3>
+        <p>نمونه آثار تصویری و هنری</p>
+      </a>
+    </div>
+  </section>
+  <!-- CHANGES END -->
 </body>
 </html>
