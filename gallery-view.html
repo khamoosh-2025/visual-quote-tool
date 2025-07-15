@@ -2,19 +2,16 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>گالری تصاویر</title>
+  <title>گالری تصویری</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>📷 گالری تصاویر</h1>
+  <h1>گالری تصاویر</h1>
 
-  <form id="uploadForm">
-    <input type="file" id="imageUpload" accept="image/*">
-  </form>
+  <input type="file" id="imageInput" accept="image/*">
+  <button onclick="clearGallery()">پاک کردن گالری</button>
 
-  <div class="gallery" id="gallery">
-    <!-- تصاویر بارگذاری‌شده اینجا نمایش داده می‌شوند -->
-  </div>
+  <div id="gallery"></div>
 
   <script src="script.js"></script>
 </body>
