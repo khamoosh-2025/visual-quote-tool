@@ -1,39 +1,18 @@
-const input = document.getElementById('imageInput');
-const gallery = document.getElementById('gallery');
 
-input.addEventListener('change', function () {
-  const file = this.files[0];
-  if (!file) return;
+function openFullscreen(img) {
+  const container = document.getElementById('fullscreenContainer');
+  const fullscreenImage = document.getElementById('fullscreenImage');
+  fullscreenImage.src = img.src;
+  container.style.display = 'flex';
+}
 
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const imageURL = e.target.result;
-    saveImageToStorage(imageURL);
-    addImageToGallery(imageURL);
-  };
-  reader.readAsDataURL(file);
+function closeFullscreen() {
+  const container = document.getElementById('fullscreenContainer');
+  container.style.display = 'none';
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeFullscreen();
+  }
 });
-
-function addImageToGallery(src) {
-  const img = document.createElement('img');
-  img.src = src;
-  gallery.appendChild(img);
-}
-
-function saveImageToStorage(dataURL) {
-  const images = JSON.parse(localStorage.getItem('galleryImages')) || [];
-  images.push(dataURL);
-  localStorage.setItem('galleryImages', JSON.stringify(images));
-}
-
-function loadImagesFromStorage() {
-  const images = JSON.parse(localStorage.getItem('galleryImages')) || [];
-  images.forEach(addImageToGallery);
-}
-
-function clearGallery() {
-  localStorage.removeItem('galleryImages');
-  gallery.innerHTML = '';
-}
-
-window.onload = loadImagesFromStorage;
