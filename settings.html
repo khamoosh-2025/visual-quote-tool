@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>تنظیمات شخصی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>تنظیمات ابزار نگارش تصویری</h1>
+
+  <label for="defaultText">متن پیش‌فرض واترمارک:</label>
+  <input type="text" id="defaultText" placeholder="مثلاً ندای دل">
+
+  <label for="defaultFont">فونت پیش‌فرض:</label>
+  <select id="defaultFont">
+    <option value="Bita">بیتا</option>
+    <option value="Tabassom">تبسم</option>
+    <option value="TahrirBadkhat">تحریر بدخط</option>
+    <option value="Zahabi">ذهبی</option>
+    <option value="Nastaligh">نستعلیق</option>
+    <option value="Nastaligh-Shekaste">نستعلیق شکسته</option>
+    <option value="Nastaligh-Keshide">نستعلیق کشیده</option>
+  </select>
+
+  <button onclick="saveSettings()">ذخیره تنظیمات</button>
+
+  <p id="statusMessage"></p>
+
+  <script src="settings.js"></script>
+</body>
+</html>
