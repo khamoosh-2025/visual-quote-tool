@@ -2,21 +2,15 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>گالری آثار</title>
-  <link rel="stylesheet" href="gallery.css">
+  <title>گالری تصاویر</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>گالری آثار طراحی‌شده</h1>
-  <div class="gallery">
-    <img src="samples/sample1.jpg" alt="اثر اول" onclick="openImage(this)">
-    <img src="samples/sample2.jpg" alt="اثر دوم" onclick="openImage(this)">
-    <img src="samples/sample3.jpg" alt="اثر سوم" onclick="openImage(this)">
-  </div>
+  <h1>گالری تصاویر</h1>
 
-  <div id="popup" class="popup" onclick="closeImage()">
-    <img id="popupImg" src="" alt="تصویر بزرگ">
-  </div>
+  <input type="file" id="imageInput" accept="image/*">
+  <div id="gallery"></div>
 
-  <script src="gallery.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
