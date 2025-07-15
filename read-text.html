@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>خوانش صوتی متن</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>خوانش صوتی متن فارسی</h1>
+    <textarea id="text-input" placeholder="متن خود را وارد کنید..."></textarea>
+    <div class="controls">
+      <button onclick="speakText()">🔊 پخش</button>
+      <button onclick="pauseSpeech()">⏸️ توقف</button>
+      <button onclick="resumeSpeech()">▶️ ادامه</button>
+      <button onclick="stopSpeech()">⏹️ پایان</button>
+    </div>
+  </div>
+  <script src="read-text.js"></script>
+</body>
+</html>
