@@ -1,5 +1,4 @@
 
-<!-- فایل HTML با popup image -->
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -8,17 +7,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>گالری تصاویر</h1>
-  <div class="gallery">
-    <img src="images/sample1.jpg" alt="Sample 1">
-    <img src="images/sample2.jpg" alt="Sample 2">
-  </div>
+  <h1 class="title">گالری تصاویر</h1>
+  <div class="gallery" id="gallery"></div>
 
-  <!-- 🟩 popup image container -->
-  <div id="popup" class="popup-container" onclick="closePopup()">
-    <img id="popupImage" class="popup-image" src="" alt="نمایش تصویر">
-  </div>
-
+  <script src="gallery-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
