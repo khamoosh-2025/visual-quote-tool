@@ -3,24 +3,16 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>گالری من</title>
+  <title>آپلود تصویر</title>
   <link rel="stylesheet" href="style.css">
-  <script src="upload.js" defer></script>
 </head>
 <body>
-  <header class="topbar">
-    <h1>گالری تصاویر دل‌نوشته‌ها</h1>
-  </header>
-
-  <main>
-    <section class="upload-section">
-      <label for="imageInput" class="upload-label">تصویر خود را انتخاب کنید:</label>
-      <input type="file" id="imageInput" accept="image/*">
-    </section>
-
-    <section id="gallery" class="gallery">
-      <!-- تصاویر ذخیره‌شده اینجا ظاهر می‌شوند -->
-    </section>
-  </main>
+  <h1>پیش‌نمایش تصویر آپلود شده</h1>
+  <input type="file" id="uploadInput" accept="image/*">
+  <div id="previewContainer">
+    <img id="imagePreview" src="" alt="پیش‌نمایش تصویر" />
+  </div>
+  <button onclick="clearPreview()">پاک کردن تصویر</button>
+  <script src="script.js"></script>
 </body>
 </html>
