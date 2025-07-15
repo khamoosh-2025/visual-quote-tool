@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>نمایش متن</title>
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Shabnam', sans-serif;
+      direction: rtl;
+      padding: 2rem;
+      line-height: 2.2;
+      color: #333;
+    }
+    #textContent {
+      white-space: pre-wrap;
+      font-size: 1.2rem;
+    }
+    a.back {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="textContent">در حال بارگذاری متن...</div>
+  <a class="back" href="gallery.html">← بازگشت</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const text = params.get('text') || 'متنی برای نمایش یافت نشد.';
+    document.getElementById('textContent').textContent = decodeURIComponent(text);
+  </script>
+</body>
+</html>
