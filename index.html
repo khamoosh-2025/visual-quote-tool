@@ -2,12 +2,12 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
+    <title>گالری نهایی</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گالری با واترمارک</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>گالری تصاویر با واترمارک</h2>
+    <h1>گالری نهایی پاپ‌آپ با واترمارک</h1>
 
     <div class="controls">
         <input type="text" id="watermarkText" placeholder="متن واترمارک (مثلاً: ندای دل)">
@@ -22,17 +22,22 @@
 
     <div class="gallery">
         <div class="image-container">
-            <img src="img1.jpg" class="wm-image">
+            <img src="img1.jpg" alt="تصویر اول" onclick="openPopup(this)" class="wm-image">
             <div class="watermark"></div>
         </div>
         <div class="image-container">
-            <img src="img2.jpg" class="wm-image">
+            <img src="img2.jpg" alt="تصویر دوم" onclick="openPopup(this)" class="wm-image">
             <div class="watermark"></div>
         </div>
         <div class="image-container">
-            <img src="img3.jpg" class="wm-image">
+            <img src="img3.jpg" alt="تصویر سوم" onclick="openPopup(this)" class="wm-image">
             <div class="watermark"></div>
         </div>
+    </div>
+
+    <div id="popup" class="popup" onclick="closePopup()">
+        <span id="caption"></span>
+        <img id="popup-img" src="">
     </div>
 
     <script src="script.js"></script>

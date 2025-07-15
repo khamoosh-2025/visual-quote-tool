@@ -1,10 +1,14 @@
 
 body {
-    font-family: 'Tahoma', sans-serif;
+    font-family: Tahoma, sans-serif;
     direction: rtl;
     text-align: center;
+    background-color: #f4f4f4;
     padding: 20px;
-    background-color: #f9f9f9;
+}
+
+h1 {
+    margin-bottom: 20px;
 }
 
 .controls {
@@ -26,13 +30,13 @@ input, select, button {
 
 .image-container {
     position: relative;
-    display: inline-block;
 }
 
 .wm-image {
     width: 250px;
     border-radius: 8px;
     border: 1px solid #ccc;
+    cursor: pointer;
 }
 
 .watermark {
@@ -44,4 +48,28 @@ input, select, button {
     pointer-events: none;
     padding: 5px;
     text-shadow: 1px 1px 2px black;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+}
+
+.popup img {
+    max-width: 90%;
+    max-height: 80vh;
+    border: 5px solid white;
+    border-radius: 10px;
+}
+
+.popup span {
+    color: white;
+    margin-top: 10px;
+    font-size: 18px;
 }
