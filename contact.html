@@ -2,19 +2,24 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <title>فرم تماس</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>تماس با ما</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>تماس با ما</h2>
-    <form id="contactForm">
-        <label>نام:</label><input type="text" name="name" required><br>
-        <label>ایمیل:</label><input type="email" name="email" required><br>
-        <label>پیام:</label><textarea name="message" required></textarea><br>
-        <button type="submit">ارسال</button>
-    </form>
-    <script src="script.js"></script>
+  <h1>تماس با من</h1>
+  <form id="contactForm">
+    <input type="text" placeholder="نام" required><br>
+    <input type="email" placeholder="ایمیل" required><br>
+    <textarea placeholder="پیام شما..." required></textarea><br>
+    <button type="submit">ارسال</button>
+  </form>
+
+  <!-- افزودن div برای نمایش پیغام موفقیت پس از ارسال فرم -->
+  <div id="success-message" class="success-message" style="display:none;">
+    پیام شما با موفقیت ارسال شد ✅
+  </div>
+
+  <script src="form-handler.js"></script>
 </body>
 </html>
-    
