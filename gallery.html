@@ -3,20 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>گالری تصاویر</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
-  <h1>گالری تصاویر من</h1>
-
-  <div class="upload-container">
-    <input type="file" id="uploadInput" accept="image/*">
-    <button onclick="addCustomImage()">افزودن به گالری</button>
-  </div>
-
-  <div id="gallery">
-    <!-- تصاویر گالری در اینجا قرار می‌گیرند -->
-  </div>
-
+  <header>
+    <h1>گالری تصاویر</h1>
+  </header>
+  <main class="gallery">
+    <div class="image-card">
+      <img src="images/sample1.jpg" alt="نمونه ۱">
+      <p>نمونه تصویر ۱</p>
+    </div>
+    <div class="image-card">
+      <img src="images/sample2.jpg" alt="نمونه ۲">
+      <p>نمونه تصویر ۲</p>
+    </div>
+    <div class="image-card">
+      <img src="images/sample3.jpg" alt="نمونه ۳">
+      <p>نمونه تصویر ۳</p>
+    </div>
+  </main>
   <script src="gallery.js"></script>
 </body>
 </html>
