@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>نمایش تصویر</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
+    .caption {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+    .back-button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #444;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+    .back-button:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img id="previewImage" src="" alt="تصویر انتخابی">
+    <div class="caption" id="imageCaption">متن تصویر</div>
+    <button class="back-button" onclick="goBack()">بازگشت به گالری</button>
+  </div>
+
+  <script>
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        src: params.get("src"),
+        caption: params.get("caption")
+      };
+    }
+
+    function goBack() {
+      window.location.href = "gallery.html";
+    }
+
+    const params = getQueryParams();
+    if (params.src) {
+      document.getElementById("previewImage").src = decodeURIComponent(params.src);
+    }
+    if (params.caption) {
+      document.getElementById("imageCaption").textContent = decodeURIComponent(params.caption);
+    }
+  </script>
+</body>
+</html>
