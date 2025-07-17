@@ -1,69 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نمونه کارها - گمنام خاموش فراری</title>
+    <title>نمونه‌کارها | گمنام خاموش فراری</title>
     <style>
         body {
-            font-family: Tahoma, sans-serif;
-            background-color: #f9f9f9;
+            font-family: sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            color: #333;
+            direction: rtl;
         }
-        header, footer {
+        header {
             background-color: #222;
-            color: white;
+            color: #fff;
             padding: 1rem;
             text-align: center;
         }
-        nav a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
+        h1 {
+            margin: 0;
         }
-        .container {
-            padding: 2rem;
-            max-width: 900px;
-            margin: auto;
-        }
-        .project {
-            background-color: #fff;
-            margin-bottom: 1.5rem;
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
             padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
         }
-        .project h2 {
+        .item {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .item:hover {
+            transform: translateY(-5px);
+        }
+        .item h3 {
             margin-top: 0;
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #222;
+            color: white;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>نمونه کارها</h1>
-        <nav>
-            <a href="index.html">صفحه اصلی</a>
-            <a href="about.html">درباره</a>
-            <a href="contact.html">تماس</a>
-            <a href="articles.html">مقالات</a>
-            <a href="portfolio.html">نمونه کارها</a>
-        </nav>
+        <h1>نمونه‌کارها</h1>
     </header>
-    <div class="container">
-        <div class="project">
-            <h2>پروژه اول</h2>
-            <p>توضیحی درباره اولین پروژه انجام‌شده توسط من.</p>
+    <section class="portfolio">
+        <div class="item">
+            <h3>نمونه اول</h3>
+            <p>توضیح مختصر درباره این پروژه یا طراحی.</p>
         </div>
-        <div class="project">
-            <h2>پروژه دوم</h2>
-            <p>مروری بر ویژگی‌ها و تجربه‌های یادگرفته‌شده از پروژه دوم.</p>
+        <div class="item">
+            <h3>نمونه دوم</h3>
+            <p>توضیح مختصر درباره این پروژه یا طراحی.</p>
         </div>
-    </div>
+        <div class="item">
+            <h3>نمونه سوم</h3>
+            <p>توضیح مختصر درباره این پروژه یا طراحی.</p>
+        </div>
+    </section>
     <footer>
-        کلیه حقوق محفوظ است - گمنام خاموش فراری
+        <p>تمام حقوق محفوظ است © گمنام خاموش فراری</p>
     </footer>
 </body>
 </html>
