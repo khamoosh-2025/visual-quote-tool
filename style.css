@@ -1,28 +1,42 @@
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Vazirmatn', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
+.feedback-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
 }
-
-.container {
-    padding: 20px;
+.feedback-section h2, .feedback-section h3 {
+  text-align: center;
+  color: #333;
 }
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #111;
+.feedback-form {
+  max-width: 600px;
+  margin: 0 auto 30px;
 }
-
-p {
-    font-size: 1.5rem;
-    color: #555;
+.feedback-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.feedback-form input, .feedback-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.feedback-form button {
+  padding: 10px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.feedback-form button:hover {
+  background-color: #005fa3;
+}
+.feedback-list ul {
+  list-style: none;
+  padding: 0;
+}
+.feedback-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
