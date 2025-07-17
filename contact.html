@@ -1,18 +1,85 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>تماس با من</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>تماس با من</title>
+    <style>
+        body {
+            font-family: "Tahoma", sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 2rem;
+            direction: rtl;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .social {
+            margin-top: 2rem;
+        }
+        .social a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .back-link {
+            margin-top: 2rem;
+            display: block;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <h1>تماس با من</h1>
-  <p>برای ارتباط با من، می‌توانید از راه‌های زیر استفاده کنید:</p>
-  <ul>
-    <li>ایمیل: <a href="mailto:ghostwriter@example.com">ghostwriter@example.com</a></li>
-    <li>اینستاگرام: <a href="https://instagram.com/ghost_writer" target="_blank">@ghost_writer</a></li>
-    <li>تلگرام: <a href="https://t.me/ghost_writer" target="_blank">t.me/ghost_writer</a></li>
-  </ul>
-  <p><a href="index.html">بازگشت به صفحه اصلی</a></p>
+    <div class="container">
+        <h1>تماس با من</h1>
+        <p>در صورت داشتن پیشنهاد، نظر یا همکاری با من تماس بگیرید:</p>
+        <form>
+            <input type="text" placeholder="نام شما" required>
+            <input type="email" placeholder="ایمیل شما" required>
+            <textarea rows="5" placeholder="پیام شما..." required></textarea>
+            <button type="submit">ارسال پیام</button>
+        </form>
+        <div class="social">
+            <p>یا از طریق شبکه‌های اجتماعی:</p>
+            <a href="mailto:gu.khamoosh@gmail.com">ایمیل</a>
+            <a href="https://t.me/khamoosh2025">تلگرام</a>
+            <a href="https://github.com/khamoosh-2025" target="_blank">گیت‌هاب</a>
+        </div>
+        <a href="index.html" class="back-link">بازگشت به صفحه اصلی</a>
+    </div>
 </body>
 </html>
