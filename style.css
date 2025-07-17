@@ -1,1 +1,18 @@
-محتوای آزمایشی برای style.css
+body {
+  font-family: Tahoma, sans-serif;
+  direction: rtl;
+  background-color: #f9f9f9;
+  padding: 20px;
+  color: #333;
+}
+nav {
+  margin-bottom: 20px;
+}
+nav a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+nav a:hover {
+  text-decoration: underline;
+}
