@@ -1,77 +1,36 @@
 
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پروژه‌های من</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            direction: rtl;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 2rem;
-        }
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 1rem;
-            transition: 0.3s ease;
-        }
-        .card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        .card h3 {
-            color: #4CAF50;
-        }
-        .card p {
-            color: #555;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Khamoosh</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>پروژه‌های من</h1>
-    </header>
-    <div class="container">
-        <div class="card">
-            <h3>وبسایت شخصی</h3>
-            <p>طراحی و توسعه‌ی یک وبسایت ساده HTML/CSS برای معرفی خودم و مهارت‌هایم.</p>
-            <a class="btn" href="#">مشاهده</a>
-        </div>
-        <div class="card">
-            <h3>اپلیکیشن ToDo</h3>
-            <p>یک اپ ساده برای مدیریت وظایف روزانه با قابلیت افزودن، حذف و تیک‌زدن.</p>
-            <a class="btn" href="#">مشاهده</a>
-        </div>
-        <div class="card">
-            <h3>پروژه فروشگاه آنلاین</h3>
-            <p>نمونه اولیه از یک فروشگاه با صفحات محصولات، سبد خرید و پرداخت.</p>
-            <a class="btn" href="#">مشاهده</a>
-        </div>
-    </div>
+  <header>
+    <h1>My Projects</h1>
+    <p>Here are some of the projects I’ve worked on.</p>
+  </header>
+
+  <main class="projects">
+    <section class="project-card">
+      <img src="images/project1.jpg" alt="Project 1">
+      <h2>Project Title 1</h2>
+      <p>A brief description of the project. This project demonstrates ...</p>
+      <a href="#">View Project</a>
+    </section>
+
+    <section class="project-card">
+      <img src="images/project2.jpg" alt="Project 2">
+      <h2>Project Title 2</h2>
+      <p>This project showcases ...</p>
+      <a href="#">View Project</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Khamoosh. All rights reserved.</p>
+  </footer>
 </body>
 </html>
