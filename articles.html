@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقالات من</title>
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+        header {
+            background-color: #005f73;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .article {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .article h2 {
+            margin-top: 0;
+            color: #005f73;
+        }
+        .article p {
+            color: #333;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #0a9396;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>مقالات من</h1>
+    </header>
+    <div class="container">
+        <div class="article">
+            <h2>عنوان مقاله اول</h2>
+            <p>این مقاله دربارهٔ مفاهیم پایه‌ای طراحی وب‌سایت و تجربه کاربری توضیح می‌دهد...</p>
+            <a href="#" class="read-more">ادامه مطلب</a>
+        </div>
+        <div class="article">
+            <h2>عنوان مقاله دوم</h2>
+            <p>در این مقاله به بررسی زبان HTML و چگونگی ساخت صفحات استاتیک می‌پردازیم...</p>
+            <a href="#" class="read-more">ادامه مطلب</a>
+        </div>
+        <div class="article">
+            <h2>عنوان مقاله سوم</h2>
+            <p>آشنایی با GitHub Pages و نحوه بارگذاری پروژه‌ها برای نمایش آنلاین...</p>
+            <a href="#" class="read-more">ادامه مطلب</a>
+        </div>
+    </div>
+</body>
+</html>
