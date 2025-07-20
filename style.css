@@ -1,42 +1,19 @@
-
-.feedback-section {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-}
-.feedback-section h2, .feedback-section h3 {
-  text-align: center;
-  color: #333;
-}
-.feedback-form {
-  max-width: 600px;
-  margin: 0 auto 30px;
-}
-.feedback-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.feedback-form input, .feedback-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.feedback-form button {
-  padding: 10px;
-  background-color: #007acc;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.feedback-form button:hover {
-  background-color: #005fa3;
-}
-.feedback-list ul {
-  list-style: none;
+body {
+  background-color: #f5f5f5;
+  font-family: 'IranNastaliq', serif;
+  margin: 0;
   padding: 0;
+  text-align: center;
+  direction: rtl;
 }
-.feedback-list li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+
+.welcome {
+  padding: 50px;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
 }
